@@ -10,7 +10,7 @@ import java.util.List;
 public interface PieceRepository extends MongoRepository<Piece, String> {
     Piece findPieceById(String id);
     List<Piece> findPieceByName(String name);
-    List<Piece> findPieceByInstrument(String name);
+    //List<Piece> findPieceByInstrument(String name);
     List<Piece> findPieceByComposer(String name);
     List<Piece> findPieceByPeriod(String name);
 }

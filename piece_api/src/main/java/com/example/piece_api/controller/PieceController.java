@@ -37,10 +37,10 @@ public class PieceController {
         return pieceRepository.findPieceByName(name);
     }
 
-    @GetMapping("/instrument/{name}")
-    public List<Piece> getPieceByInstrument(@PathVariable String name) {
-        return pieceRepository.findPieceByInstrument(name);
-    }
+    //@GetMapping("/instrument/{name}")
+    //public List<Piece> getPieceByInstrument(@PathVariable String name) {
+    //    return pieceRepository.findPieceByInstrument(name);
+    //}
 
     @GetMapping("/composer/{name}")
     public List<Piece> getPieceByComposer(@PathVariable String name) {
