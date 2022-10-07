@@ -1,15 +1,15 @@
 version: '3'
 services:
-    mysql.intrument:
+    mysql.instrument:
         image: 'mysql/mysql-server:8.0'
         ports:
             - '${FORWARD_INSTRUMENT_PORT:-3306}:3306'
         environment:
-            MYSQL_ROOT_PASSWORD: '${INSTRUMENT_PASSWORD:S3cret}'
+            MYSQL_ROOT_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
             MYSQL_ROOT_HOST: "%"
             MYSQL_DATABASE: '${INSTRUMENT_DATABASE}'
-            MYSQL_USER: '${INSTRUMENT_USERNAME:citizix}'
-            MYSQL_PASSWORD: '${INSTRUMENT_PASSWORD:S3cret}'
+            MYSQL_USER: '${INSTRUMENT_USERNAME:-citizix}'
+            MYSQL_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
         volumes:
             - 'mysql-instrument:/var/lib/mysql'
@@ -22,8 +22,8 @@ services:
         volumes:
           - mongo-piece:/data/db
         environment:
-          MONGO_INITDB_ROOT_USERNAME: '${PIECE_USERNAME:citizix}'
-          MONGO_INITDB_ROOT_PASSWORD: '${PIECE_PASSWORD:S3cret}'
+          MONGO_INITDB_ROOT_USERNAME: '${PIECE_USERNAME:-citizix}'
+          MONGO_INITDB_ROOT_PASSWORD: '${PIECE_PASSWORD:-S3cret}'
           MONGO_INITDB_DATABASE: '${PIECE_DB_NAME}'
     mongodb.review:
         image: mongo:5.0
@@ -32,8 +32,8 @@ services:
         volumes:
           - mongo-review:/data/db
         environment:
-          MONGO_INITDB_ROOT_USERNAME: '${REVIEW_USERNAME:citizix}'
-          MONGO_INITDB_ROOT_PASSWORD: '${REVIEW_PASSWORD:S3cret}'
+          MONGO_INITDB_ROOT_USERNAME: '${REVIEW_USERNAME:-citizix}'
+          MONGO_INITDB_ROOT_PASSWORD: '${REVIEW_PASSWORD:-S3cret}'
           MONGO_INITDB_DATABASE: '${REVIEW_DB_NAME}'
 networks:
     instrument:
