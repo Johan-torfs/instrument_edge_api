@@ -1,5 +1,6 @@
 package com.example.piece_api.controller;
 
+import com.example.piece_api.model.Part;
 import com.example.piece_api.model.Piece;
 import com.example.piece_api.repository.PieceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,22 @@ public class PieceController {
 
     @PostConstruct
     public void fillDB() {
-        if (pieceRepository.count() == 0) {
-            pieceRepository.save(new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré"));
-            pieceRepository.save(new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré"));
-            pieceRepository.save(new Piece("Requerdos de la Alhambra", "19th century", "Francisco Tárrega"));
-            pieceRepository.save(new Piece("Asturias", "19th century", "Isaac Albéniz"));
+        for (Piece piece: pieceRepository.findAll()) {
+            pieceRepository.delete(piece);
         }
+        ArrayList<Part> parts = new ArrayList<Part>();
+        parts.add(new Part("6340075e74b41461c33e42c8", "Solo"));
+
+        pieceRepository.save(new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", parts));
+        pieceRepository.save(new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", parts));
+        pieceRepository.save(new Piece("Requerdos de la Alhambra", "19th century", "Francisco Tárrega", parts));
+        pieceRepository.save(new Piece("Asturias", "19th century", "Isaac Albéniz", parts));
+
+        System.out.println("Pieces added:");
+        for (Piece piece: pieceRepository.findAll()) {
+            System.out.println(piece);
+        }
+
     }
 
     @GetMapping("/{id}")
@@ -37,10 +48,10 @@ public class PieceController {
         return pieceRepository.findPieceByName(name);
     }
 
-    //@GetMapping("/instrument/{name}")
-    //public List<Piece> getPieceByInstrument(@PathVariable String name) {
-    //    return pieceRepository.findPieceByInstrument(name);
-    //}
+    @GetMapping("/instrument/{id}")
+    public List<Piece> getPieceByInstrument(@PathVariable String id) {
+        return pieceRepository.findPieceByInstrument(id);
+    }
 
     @GetMapping("/composer/{name}")
     public List<Piece> getPieceByComposer(@PathVariable String name) {

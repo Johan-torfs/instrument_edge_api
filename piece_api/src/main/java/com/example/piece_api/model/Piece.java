@@ -14,8 +14,9 @@ public class Piece {
     private String period;
     private String composer;
 
-    @JsonProperty("parts")
     private ArrayList<Part> parts;
+
+    public Piece() {}
 
     public Piece(String name) {
         this.name = name;
@@ -32,5 +33,45 @@ public class Piece {
         this.name = name;
         this.period = period;
         this.composer = composer;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+
+    public String getComposer() {
+        return composer;
+    }
+
+    public void setComposer(String composer) {
+        this.composer = composer;
+    }
+
+    public ArrayList<Part> getParts() {
+        return parts;
+    }
+
+    public void setParts(ArrayList<Part> parts) {
+        this.parts = parts;
     }
 }
