@@ -24,7 +24,7 @@ public class PieceController {
             pieceRepository.delete(piece);
         }
         ArrayList<Part> parts = new ArrayList<Part>();
-        parts.add(new Part("6340075e74b41461c33e42c8", "Solo"));
+        parts.add(new Part(5, "Solo"));
 
         pieceRepository.save(new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", parts));
         pieceRepository.save(new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", parts));

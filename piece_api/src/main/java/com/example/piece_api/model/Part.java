@@ -1,19 +1,19 @@
 package com.example.piece_api.model;
 
 public class Part {
-    private String instrument;
+    private int instrument;
     private String name;
 
-    public Part(String instrument, String name) {
+    public Part(int instrument, String name) {
         this.instrument = instrument;
         this.name = name;
     }
 
-    public String getInstrument() {
+    public int getInstrument() {
         return instrument;
     }
 
-    public void setInstrument(String instrument) {
+    public void setInstrument(int instrument) {
         this.instrument = instrument;
     }
 
