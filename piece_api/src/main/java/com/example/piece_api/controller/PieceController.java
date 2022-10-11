@@ -38,6 +38,11 @@ public class PieceController {
 
     }
 
+    @GetMapping("/")
+    public List<Piece> getPieces() {
+        return pieceRepository.findAll();
+    }
+
     @GetMapping("/{id}")
     public Piece getPieceById(@PathVariable String id) {
         return pieceRepository.findPieceById(id);
