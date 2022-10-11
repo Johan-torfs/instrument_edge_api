@@ -30,15 +30,15 @@ public class ReviewController {
         }
 
     }
-
-    @GetMapping("/{id}")
-    public Review getReviewById(@PathVariable String id) {
-        return reviewRepository.findById(id).orElse(null);
-    }
     
     @GetMapping("/")
     public List<Review> getReviews() {
         return reviewRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Review getReviewById(@PathVariable String id) {
+        return reviewRepository.findById(id).orElse(null);
     }
 
     @GetMapping("/piece/{id}")
