@@ -35,10 +35,15 @@ public class ReviewController {
     public Review getReviewById(@PathVariable String id) {
         return reviewRepository.findById(id).orElse(null);
     }
+    
+    @GetMapping("/")
+    public List<Review> getReviews() {
+        return reviewRepository.findAll();
+    }
 
-    @GetMapping("/name/{name}")
-    public List<Review> getReviewsByPieceName(@PathVariable String name) {
-        return reviewRepository.findReviewsByPieceName(name);
+    @GetMapping("/piece/{id}")
+    public List<Review> getReviewsByPieceId(@PathVariable String id) {
+        return reviewRepository.findReviewsByPieceId(id);
     }
 
     @PostMapping("/")
