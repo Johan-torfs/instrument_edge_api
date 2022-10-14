@@ -29,9 +29,9 @@ public class MusicianService {
         return musician;
     }
 
-//    public List<Musician> getMusiciansByYear(int year) {
-//        return musicianRepository.findByYear(year);
-//    }
+    public List<Musician> getMusiciansByYear(int year) {
+        return musicianRepository.findByName(year);
+    }
 
 //    public List<Musician> getMusiciansByInstrumentId(String id) {
 //        return null;

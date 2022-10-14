@@ -8,33 +8,35 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/musician")
 public class MusicianController {
 
     @Autowired
-    private MusicianService musicianService;
+    MusicianService musicianService;
 
     // GET /{id}: Musician
-    @GetMapping(path="/{id}") //path parameter
+    @GetMapping("/{id}") //path parameter
     public Musician getMusician(@PathVariable int id)
     {
         return musicianService.musicianById(id);
     }
 
     // GET /name/{name}: Musician
-    @GetMapping(path="/name/{name}") //path parameter
+    @GetMapping("/name/{name}") //path parameter
     public Musician getMusicianName(@PathVariable String name)
     {
         return musicianService.getMusicianByName(name);
     }
 
     // GET /year/{year}: MusicianList
-//    @GetMapping(path="/year/{year}") //path parameter
-//    public List<Musician> getMusicianYear(@PathVariable int year)
-//    {
-//        return musicianService.getMusiciansByYear(year);
-//    }
+    @GetMapping("/year/{year}") //path parameter
+    public List<Musician> getMusicianYear(@PathVariable int year)
+    {
+        return musicianService.getMusiciansByYear(year);
+    }
 
 //    // GET /instrument/{id}: MusicianList
 //    @GetMapping(path="/instrument/{id}") //path parameter

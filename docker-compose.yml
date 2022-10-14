@@ -7,7 +7,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
             MYSQL_ROOT_HOST: "%"
-            MYSQL_DATABASE: '${INSTRUMENT_DATABASE}'
+            MYSQL_DATABASE: '${INSTRUMENT_DATABASE:-instrumentdb_test}'
             MYSQL_USER: '${INSTRUMENT_USERNAME:-citizix}'
             MYSQL_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
