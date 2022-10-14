@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Advanced programming and mobile development.iml" filepath="$PROJECT_DIR$/.idea/Advanced programming and mobile development.iml" />
+      <module fileurl="file://$PROJECT_DIR$/instrument_api/instrument_api.iml" filepath="$PROJECT_DIR$/instrument_api/instrument_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/piece_api/piece_api.iml" filepath="$PROJECT_DIR$/piece_api/piece_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/review_api/review_api.iml" filepath="$PROJECT_DIR$/review_api/review_api.iml" />
+    </modules>
+  </component>
+</project>
