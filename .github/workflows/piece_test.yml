@@ -1,4 +1,4 @@
-name: Build, test and deliver container
+name: PIECE API Build, test and deliver container
 
 on: 
   pull_request:
@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: Java 17 build, test, deliver container
+    name: PIECE API Java 17 build, test, deliver container
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
