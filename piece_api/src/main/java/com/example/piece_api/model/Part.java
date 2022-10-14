@@ -1,0 +1,27 @@
+package com.example.piece_api.model;
+
+public class Part {
+    private int instrumentId;
+    private String name;
+
+    public Part(int instrumentId, String name) {
+        this.instrumentId = instrumentId;
+        this.name = name;
+    }
+
+    public int getInstrumentId() {
+        return instrumentId;
+    }
+
+    public void setInstrument(int instrumentId) {
+        this.instrumentId = instrumentId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
