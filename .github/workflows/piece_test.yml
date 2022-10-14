@@ -26,5 +26,8 @@ jobs:
           mongodb-password: S3cret
           mongodb-port: 27017
       
-      - name: Build, test and package project
+      - name: Work in Piece API
+        run: cd piece_api
+      
+      - name: Build, test and package PIECe API
         run: mvn -B package --file pom.xml
