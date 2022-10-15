@@ -9,7 +9,8 @@ on:
 
 
 jobs:
-  name: Run on okteto
+  name: Deploy to Okteto
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Install Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
