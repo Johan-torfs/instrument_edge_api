@@ -1,0 +1,21 @@
+name: PIECE API Build, test and deliver container
+
+on:
+  workflow_run:
+    workflows: ["piece_deploy"]
+    branches: [main]
+    types: 
+      - completed
+
+
+jobs:
+  name: Run on okteto
+    steps:
+      - name: Install Okteto CLI
+        run: curl https://get.okteto.com -sSfL | sh
+
+      - name: Login to Okteto
+        run: okteto --token ${{ OKTETO_TOKEN }} context use https://cloud.okteto.com
+
+      - name: Build Okteto Cluster
+        run: okteto deploy --wait
