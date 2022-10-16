@@ -29,4 +29,4 @@ VALUES
 'Brass',
 'info cornet',
 'Cornet' ,
-'a')musician;
+'a')
