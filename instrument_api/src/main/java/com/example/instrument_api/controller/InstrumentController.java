@@ -4,11 +4,12 @@ import com.example.instrument_api.model.Instrument;
 import com.example.instrument_api.service.InstrumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 @RestController
@@ -27,28 +28,28 @@ public class InstrumentController {
 
     // GET /instrument/{id}: Instrument
     @GetMapping("/{id}")
-    public ResponseEntity<Instrument> getInstrument(@PathVariable(value= "id") int id)
+    public Instrument getInstrument(@PathVariable(value= "id") int id)
     {
         try{
-            Instrument instrument = instrumentService.getInstrumentById(id);
-            return new ResponseEntity<Instrument>(instrument, HttpStatus.OK);
+            return instrumentService.getInstrumentById(id);
         }
         catch (Exception e){
-            return new ResponseEntity<Instrument>(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Foo Not Found", e);
         }
 
     }
 
     // GET /instrument/name/{name}: Instrument
     @GetMapping("/name/{name}")
-    public ResponseEntity<Instrument> getInstrumentByName(@PathVariable String name)
+    public Instrument getInstrumentByName(@PathVariable String name)
     {
         try{
-            Instrument instrument = instrumentService.getInstrumentByName(name);
-            return new ResponseEntity<Instrument>(instrument, HttpStatus.OK);
+            return instrumentService.getInstrumentByName(name);
         }
         catch (Exception e){
-            return new ResponseEntity<Instrument>(HttpStatus.NOT_FOUND);
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Foo Not Found", e);
         }
 
     }
