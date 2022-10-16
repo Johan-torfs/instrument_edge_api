@@ -1,6 +1,7 @@
 package com.example.instrument_api.service;
 
 import com.example.instrument_api.model.Musician;
+import com.example.instrument_api.repository.InstrumentRepository;
 import com.example.instrument_api.repository.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.List;
 public class MusicianService {
     @Autowired
     MusicianRepository musicianRepository;
+    InstrumentRepository instrumentRepository;
 
     public Musician musicianById(int id) {
         return musicianRepository.findById(id).get();
@@ -30,17 +32,14 @@ public class MusicianService {
     }
 
     public List<Musician> getMusiciansByYear(int year) {
-        return musicianRepository.findByName(year);
+        return musicianRepository.findAllByFromYear(year);
     }
 
-//    public List<Musician> getMusiciansByInstrumentId(String id) {
-//        return null;
-//    }
-//
-//    public List<Musician> getMusiciansByNameContaining(String name) {
-//    return null;
-//    }
+    public List<Musician> getMusiciansByInstrumentId(int id) {
+        return musicianRepository.findMusicianByInstrument_Id(id);
+    }
 
-
-
+    public List<Musician> getMusiciansByNameContaining(String name) {
+    return musicianRepository.findMusicianByInstrument_Name(name);
+    }
 }

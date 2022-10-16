@@ -22,10 +22,10 @@ public class Musician implements Serializable {
     private String name;
 
     @Column(name="year_of_birth")
-    private int year_of_birth;
+    private int yearOfBirth;
 
     @Column(name="year_of_death")
-    private int year_of_death;
+    private int yearOfDeath;
 
     @ManyToOne
     @JsonIgnore

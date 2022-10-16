@@ -2,11 +2,16 @@ package com.example.instrument_api.repository;
 
 import com.example.instrument_api.model.Musician;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface MusicianRepository extends JpaRepository<Musician, Integer> {
-    List<Musician> findByName(int year_of_birth);
+    @Query("SELECT u FROM Musician u WHERE u.yearOfBirth BETWEEN (:year) and 3000")
+    List<Musician> findAllByFromYear(@Param("year") int year);
+    List<Musician> findMusicianByInstrument_Id(int id);
+    List<Musician> findMusicianByInstrument_Name(String name);
 }
