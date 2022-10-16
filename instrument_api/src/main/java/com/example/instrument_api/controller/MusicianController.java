@@ -60,7 +60,7 @@ public class MusicianController {
     }
 
     // GET /instrument/name/{name}: MusicianList
-    @GetMapping(path="instrument/name/{name}") //path parameter
+    @GetMapping("instrument/name/{name}") //path parameter
     public List<Musician> getMusicianInstrumentName(@PathVariable String name)
     {
         return musicianService.getMusiciansByNameContaining(name);
