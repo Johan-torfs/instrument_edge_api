@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
