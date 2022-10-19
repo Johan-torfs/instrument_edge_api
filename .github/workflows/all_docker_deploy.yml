@@ -2,27 +2,21 @@ name: Build and deliver all docker containers
 
 on: 
   workflow_run:
-    workflows: ["all_tests"]
+    workflows: ["Build and test all APIs"]
     branches: [main]
     types: 
       - completed
 
 jobs:
-  instument-deploy:
-    name: Instument Deploy Docker
+  all-deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    name: All Deploy Docker
+    strategy:
+      matrix:
+        container-name: [instrument_instrument_api, instrument_piece_api, instrument_review_api]
+        api-name: [instrument_api, piece_api, review_api]
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
-      container-name: instrument_instrument_api
-      root-path: ./instrument_api
-  piece-deploy:
-    name: Piece Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
-    with:
-      container-name: instrument_piece_api
-      root-path: ./piece_api
-  review-deploy:
-    name: Review Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
-    with:
-      container-name: instrument_review_api
-      root-path: ./review_api
+      container-name: ${{ matrix.container-name }}
+      api-name: ${{ matrix.api-name }}
+    secrets: inherit
