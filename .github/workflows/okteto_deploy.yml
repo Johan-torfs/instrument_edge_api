@@ -18,7 +18,7 @@ jobs:
         run: curl https://get.okteto.com -sSfL | sh
 
       - name: Login to Okteto
-        run: okteto --token ${{ OKTETO_TOKEN }} context use https://cloud.okteto.com
+        run: okteto --token ${{ secrets.OKTETO_TOKEN }} context use https://cloud.okteto.com
 
       - name: Build Okteto Cluster
         run: okteto deploy --wait
