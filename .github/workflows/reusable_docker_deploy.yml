@@ -11,7 +11,9 @@ on:
         type: string
 
 jobs:
-  name: Deliver Container
+  docker:
+    name: Deliver Container
+    runs-on: ubuntu-latest
     steps:
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
