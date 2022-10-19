@@ -13,7 +13,7 @@ jobs:
     name: All API Tests
     strategy:
       matrix:
-        api-name: [dev, stage, prod]
+        api-name: [instrument_api, piece_api, review_api]
         database: [sql, mongo, mongo]
         database-port: [3306, 27017, 27018]
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
