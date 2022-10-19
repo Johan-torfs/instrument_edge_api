@@ -10,19 +10,19 @@ on:
 jobs:
   instument-deploy:
     name: Instument Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/api_docker_deploy.yml@main
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
       container-name: instrument_instrument_api
       root-path: ./instrument_api
   piece-deploy:
     name: Piece Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/api_docker_deploy.yml@main
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
       container-name: instrument_piece_api
       root-path: ./piece_api
   review-deploy:
     name: Review Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/api_docker_deploy.yml@main
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
       container-name: instrument_review_api
       root-path: ./review_api

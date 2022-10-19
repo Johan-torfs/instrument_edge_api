@@ -9,21 +9,21 @@ on:
 jobs:
   instument-tests:
     name: Instument API Tests
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/api_test.yml@main
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
     with:
       config-path: ./instrument_api/pom.xml
       database: sql
       database-port: 3306
   piece-tests:
     name: Piece API Tests
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/api_test.yml@main
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
     with:
       config-path: ./piece_api/pom.xml
       database: mongo
       database-port: 27017
   review-tests:
     name: Review API Tests
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/api_test.yml@main
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
     with:
       config-path: ./review_api/pom.xml
       database: mongo
