@@ -9,7 +9,7 @@ on:
       database:
         type: string
       database-port:
-        type: number
+        type: string
 
 jobs:
   test:
