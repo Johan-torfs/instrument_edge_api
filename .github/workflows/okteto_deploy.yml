@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
       - name: Install Okteto CLI
         run: curl https://get.okteto.com -sSfL | sh
 
