@@ -13,9 +13,16 @@ jobs:
     name: All API Tests
     strategy:
       matrix:
-        api-name: [instrument_api, piece_api, review_api]
-        database: [sql, mongo, mongo]
-        database-port: [3306, 27017, 27018]
+        include:
+          - api-name: instrument_api
+            database: sql
+            database-port: 3306
+          - api-name: piece_api
+            database: mongo
+            database-port: 27017
+          - api-name: review_api
+            database: mongo
+            database-port: 27018
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
     with:
       api-name: ${{ matrix.api-name }}
