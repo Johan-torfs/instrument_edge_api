@@ -1,9 +1,11 @@
-name: API Build and test
+name: Build and test all APIs
 
 on: 
   pull_request:
     branches:
       - 'dev'
+  pudh:
+    branches:
       - 'main'
 
 jobs:
