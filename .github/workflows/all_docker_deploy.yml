@@ -13,10 +13,9 @@ jobs:
     name: All Deploy Docker
     strategy:
       matrix:
-        container-name: [instrument_instrument_api, instrument_piece_api, instrument_review_api]
         api-name: [instrument_api, piece_api, review_api]
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
-      container-name: ${{ matrix.container-name }}
       api-name: ${{ matrix.api-name }}
+      run-id: ${{ github.event.workflow_run.id }}
     secrets: inherit
