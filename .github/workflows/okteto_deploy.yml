@@ -9,7 +9,9 @@ on:
 
 
 jobs:
-  name: Deploy to Okteto
+  okteto:
+    name: Deploy to Okteto
+    runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Install Okteto CLI
