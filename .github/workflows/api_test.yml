@@ -1,0 +1,46 @@
+name: API Build and test
+
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+      database:
+        type: string
+      database-port:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: API Java 17 build and test
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: corretto
+          cache: maven
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+      - name: Start MongoDB for integration test
+        if: ${{ inputs.database == 'mongo' }}
+        uses: supercharge/mongodb-github-action@1.8.0
+        with:
+          mongodb-username: citizix
+          mongodb-password: S3cret
+          mongodb-port: ${{ inputs.database-port }}
+
+      - name: Start MySQL for integration test
+        if: ${{ inputs.database == 'sql' }}
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          host port: ${{ inputs.database-port }}
+          mysql root password: S3cret
+      
+      - name: Build, test and package
+        run: mvn -B package --file ${{inputs.config-path}}
