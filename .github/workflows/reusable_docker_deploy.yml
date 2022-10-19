@@ -3,10 +3,7 @@ name: Build and deliver docker container
 on:
   workflow_call:
     inputs:
-      container-name:
-        required: true
-        type: string
-      root-path:
+      api-name:
         required: true
         type: string
     secrets:
@@ -39,7 +36,7 @@ jobs:
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest ./${{ inputs.api-name }}
+        run: docker build -t ${{ secrets.DOCKER_USER }}/instrument_${{ inputs.api-name }}:latest ./${{ inputs.api-name }}
 
       - name: Upload container to Docker Hub with Push
-        run: docker push ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest
+        run: docker push ${{ secrets.DOCKER_USER }}/instrument_${{ inputs.api-name }}:latest
