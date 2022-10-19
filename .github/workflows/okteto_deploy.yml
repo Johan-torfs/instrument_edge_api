@@ -1,8 +1,8 @@
-name: PIECE API Build, test and deliver container
+name: Deploy to Okteto
 
 on:
   workflow_run:
-    workflows: ["piece_deploy"]
+    workflows: ["Build and deliver all docker containers"]
     branches: [main]
     types: 
       - completed

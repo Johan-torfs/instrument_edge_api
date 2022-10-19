@@ -3,7 +3,7 @@ name: Build and test API
 on:
   workflow_call:
     inputs:
-      config-path:
+      api-name:
         required: true
         type: string
       database:
@@ -44,4 +44,4 @@ jobs:
           mysql root password: S3cret
       
       - name: Build, test and package
-        run: mvn -B package --file ${{inputs.config-path}}
+        run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
