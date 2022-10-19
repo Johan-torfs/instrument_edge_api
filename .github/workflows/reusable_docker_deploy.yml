@@ -6,6 +6,9 @@ on:
       api-name:
         required: true
         type: string
+      run-id:
+        required: true
+        type: string
 
 jobs:
   docker:
@@ -14,6 +17,14 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+        
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: all_tests.yml
+          run_id: ${{ inputs.run_id }}
+          name: ${{ inputs.api-name }}-jar
+          path: ./${{ inputs.api-name }}/target
         
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
