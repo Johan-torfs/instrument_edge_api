@@ -6,11 +6,6 @@ on:
       api-name:
         required: true
         type: string
-    secrets:
-      DOCKER_USER:
-        required: true
-      DOCKER_PASSWORD:
-        required: true
 
 jobs:
   docker:
