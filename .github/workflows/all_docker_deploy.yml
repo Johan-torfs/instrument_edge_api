@@ -2,7 +2,7 @@ name: Build and deliver all docker containers
 
 on: 
   workflow_run:
-    workflows: ["all_tests"]
+    workflows: ["Build and test all APIs"]
     branches: [main]
     types: 
       - completed
