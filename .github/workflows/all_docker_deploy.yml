@@ -17,4 +17,5 @@ jobs:
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
       api-name: ${{ matrix.api-name }}
+      run-id: ${{ github.event.workflow_run.id }}
     secrets: inherit
