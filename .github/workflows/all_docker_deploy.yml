@@ -17,7 +17,7 @@ jobs:
       root-path: ./instrument_api
     secrets:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASSWORD: ${{ secrets.PASSWORD }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   piece-deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Piece Deploy Docker
@@ -27,7 +27,7 @@ jobs:
       root-path: ./piece_api
     secrets:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASSWORD: ${{ secrets.PASSWORD }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   review-deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Review Deploy Docker
@@ -37,4 +37,4 @@ jobs:
       root-path: ./review_api
     secrets:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASSWORD: ${{ secrets.PASSWORD }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
