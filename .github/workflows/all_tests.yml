@@ -1,4 +1,4 @@
-name: PIECE API Build and test
+name: API Build and test
 
 on: 
   pull_request:
