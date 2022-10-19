@@ -45,3 +45,9 @@ jobs:
       
       - name: Build, test and package
         run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: ${{inputs.api-name}}-jar
+          path: ./${{inputs.api-name}}/target/*.jar
