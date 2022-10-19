@@ -20,13 +20,26 @@ jobs:
     name: Deliver Container
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: corretto
+          cache: maven
+          server-id: github
+          settings-path: ${{ github.workspace }}
+      
+      - name: Build, test and package
+        run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
       
       - name: Docker login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest ${{ inputs.root-path }}
+        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest ./${{ inputs.api-name }}
 
       - name: Upload container to Docker Hub with Push
         run: docker push ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest

@@ -9,24 +9,15 @@ on:
       - 'main'
 
 jobs:
-  instument-tests:
-    name: Instument API Tests
+  all-tests:
+    name: All API Tests
+    strategy:
+      matrix:
+        api-name: [dev, stage, prod]
+        database: [sql, mongo, mongo]
+        database-port: [3306, 27017, 27018]
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
     with:
-      config-path: ./instrument_api/pom.xml
-      database: sql
-      database-port: 3306
-  piece-tests:
-    name: Piece API Tests
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
-    with:
-      config-path: ./piece_api/pom.xml
-      database: mongo
-      database-port: 27017
-  review-tests:
-    name: Review API Tests
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
-    with:
-      config-path: ./review_api/pom.xml
-      database: mongo
-      database-port: 27018
+      api-name: ${{ matrix.api-name }}
+      database: ${{ matrix.database }}
+      database-port: ${{ matrix.database-port }}

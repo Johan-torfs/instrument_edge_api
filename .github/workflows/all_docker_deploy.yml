@@ -8,33 +8,15 @@ on:
       - completed
 
 jobs:
-  instument-deploy:
+  all-deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Instument Deploy Docker
+    name: All Deploy Docker
+    strategy:
+      matrix:
+        container-name: [instrument_instrument_api, instrument_piece_api, instrument_review_api]
+        api-name: [instrument_api, piece_api, review_api]
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
-      container-name: instrument_instrument_api
-      root-path: ./instrument_api
-    secrets:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  piece-deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Piece Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
-    with:
-      container-name: instrument_piece_api
-      root-path: ./piece_api
-    secrets:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  review-deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Review Deploy Docker
-    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
-    with:
-      container-name: instrument_review_api
-      root-path: ./review_api
-    secrets:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      container-name: ${{ matrix.container-name }}
+      api-name: ${{ matrix.api-name }}
+    secrets: inherit
