@@ -1,0 +1,23 @@
+name: Build and deliver docker container
+
+on:
+  workflow_call:
+    inputs:
+      container-name:
+        required: true
+        type: string
+      root-path:
+        required: true
+        type: string
+
+jobs:
+  name: Deliver Container
+    steps:
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Build
+        run: docker build -t ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest ${{ inputs.root-path }}
+
+      - name: Upload container to Docker Hub with Push
+        run: docker push ${{ secrets.DOCKER_USER }}/${{ inputs.container-name }}:latest

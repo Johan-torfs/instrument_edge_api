@@ -9,6 +9,7 @@ on:
       database:
         type: string
       database-port:
+        type: number
 
 jobs:
   test:
