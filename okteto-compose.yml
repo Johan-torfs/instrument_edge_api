@@ -40,6 +40,7 @@ services:
       ports: 
         - '8051:8051'
       environment:
+        MYSQL_DB_HOST: 'mysql-instrument'
         MYSQL_DB_PORT: 3306
         MYSQL_DB_USERNAME: '${INSTRUMENT_USERNAME:-root}'
         MYSQL_DB_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
