@@ -3,7 +3,6 @@ package com.example.piece_api;
 import com.example.piece_api.model.Part;
 import com.example.piece_api.model.Piece;
 import com.example.piece_api.repository.PieceRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.util.Assert;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.*;
@@ -26,7 +26,6 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class PieceControllerUnitTests {
-
     @Autowired
     private WebApplicationContext webApplicationContext;
 
