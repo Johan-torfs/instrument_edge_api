@@ -53,9 +53,6 @@ jobs:
           args: >
             -Dsonar.organization=johantorfs
             -Dsonar.projectKey=JohanTorfs_instrument_edge_api
-      
-      - name: Build, test and package
-        run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
