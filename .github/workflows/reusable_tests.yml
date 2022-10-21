@@ -43,11 +43,16 @@ jobs:
           host port: ${{ inputs.database-port }}
           mysql root password: S3cret
       
-      - name: Build and analyze
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JohanTorfs_instrument_edge_api
+        with:
+          projectBaseDir: ${{inputs.api-name}}
+          args: >
+            -Dsonar.organization=johantorfs
+            -Dsonar.projectKey=JohanTorfs_instrument_edge_api
       
       - name: Build, test and package
         run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
