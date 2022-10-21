@@ -44,19 +44,19 @@ jobs:
           mysql root password: S3cret
           
             
-      - name: Build, test and package
-        run: mvn verify --file ./${{inputs.api-name}}/pom.xml
+      # - name: Build, test and package
+      #   run: mvn verify --file ./${{inputs.api-name}}/pom.xml
       
-#       - name: SonarCloud Scan
-#         uses: SonarSource/sonarcloud-github-action@master
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         with:
-#           projectBaseDir: ${{inputs.api-name}}
-#           args: >
-#             -Dsonar.organization=johantorfs
-#             -Dsonar.projectKey=JohanTorfs_instrument_edge_api
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: ${{inputs.api-name}}
+          args: >
+            -Dsonar.organization=johantorfs
+            -Dsonar.projectKey=JohanTorfs_instrument_edge_api
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
