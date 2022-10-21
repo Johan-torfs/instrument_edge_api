@@ -4,7 +4,7 @@ This repository contains all the microservices that will be used by our brand ne
 You will find all relevant documentation, as well as a link to the front-end repository, down below.
 
 ## Architecture of the microservices
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/tree/main/images/MicroserviceArchitecture.png "Microservice Architecture")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/johan/images/MicroserviceArchitecture.png "Microservice Architecture")
 
 ## Postman Tests
 
