@@ -12,7 +12,7 @@ public interface PieceRepository extends MongoRepository<Piece, String> {
     Piece findPieceById(String id);
     List<Piece> findPieceByName(String name);
     @Query("{\"parts.instrument\": ?0}")
-    List<Piece> findPieceByInstrument(String id);
+    List<Piece> findPieceByInstrument(int id);
     List<Piece> findPieceByComposer(String name);
     List<Piece> findPieceByPeriod(String name);
 }

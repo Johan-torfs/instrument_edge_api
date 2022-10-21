@@ -53,7 +53,7 @@ public class PieceController {
     }
 
     @GetMapping("/instrument/{id}")
-    public List<Piece> getPieceByInstrument(@PathVariable String id) {
+    public List<Piece> getPieceByInstrument(@PathVariable int id) {
         return pieceRepository.findPieceByInstrument(id);
     }
 
