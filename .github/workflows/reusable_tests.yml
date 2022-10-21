@@ -62,7 +62,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JohanTorfs_instrument_edge_api -Dsonar.projectBaseDir=${{inputs.api-name}}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JohanTorfs_instrument_edge_api -Dsonar.projectBaseDir=${{inputs.api-name}} --file ./${{inputs.api-name}}/pom.xml
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
