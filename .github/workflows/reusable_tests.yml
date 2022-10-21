@@ -41,7 +41,7 @@ jobs:
         uses: mirromutth/mysql-action@v1.1
         with:
           host port: ${{ inputs.database-port }}
-          mysql root password: 
+          mysql root password: S3cret
       
       - name: Build and analyze
         env:
