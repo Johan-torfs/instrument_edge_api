@@ -45,7 +45,7 @@ jobs:
           
             
       - name: Build, test and package
-        run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
+        run: mvn verify --file ./${{inputs.api-name}}/pom.xml
       
 #       - name: SonarCloud Scan
 #         uses: SonarSource/sonarcloud-github-action@master
