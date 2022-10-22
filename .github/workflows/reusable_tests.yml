@@ -41,16 +41,13 @@ jobs:
         uses: mirromutth/mysql-action@v1.1
         with:
           host port: ${{ inputs.database-port }}
-          mysql root password: 
-      
+          mysql root password: S3cret
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JohanTorfs_instrument_edge_api
-      
-      - name: Build, test and package
-        run: mvn -B package --file ./${{inputs.api-name}}/pom.xml
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=JohanTorfs_instrument_edge_api -Dsonar.projectBaseDir=${{inputs.api-name}} --file ./${{inputs.api-name}}/pom.xml -Pcoverage
         
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0

@@ -28,3 +28,4 @@ jobs:
       api-name: ${{ matrix.api-name }}
       database: ${{ matrix.database }}
       database-port: ${{ matrix.database-port }}
+    secrets: inherit
