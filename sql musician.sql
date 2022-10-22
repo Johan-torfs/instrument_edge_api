@@ -5,9 +5,8 @@ INSERT INTO `instrumentdb_test`.`musician`
 `year_of_death`,
 `instrument_id`)
 VALUES
-(1,'alfa',1950,1960,6),
-(2,'bert',1950,1990,5),
-(3,'hard',1900,1945,4),
-(4,'hans',1998,2020,3),
-(5,'mars',1923,1986,2),
-(6,'kars',2001,2023,1);
+(1,"Svend Asmussen", 1916,2017,4),
+(2,"Bartolo Alvarez",1914,2017,3),
+(3,"Ray Anthony",1922,2022,2),
+(4,"Irving Fields",1915,2016,1);
+       
