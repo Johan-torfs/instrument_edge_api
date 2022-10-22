@@ -25,7 +25,6 @@ public class InstrumentController {
         return instrumentService.getAllInstruments();
     }
 
-
     // GET /instrument/{id}: Instrument
     @GetMapping("/{id}")
     public Instrument getInstrument(@PathVariable(value= "id") int id)
