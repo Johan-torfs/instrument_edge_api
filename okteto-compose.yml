@@ -71,7 +71,7 @@ services:
         - api-instrument
         - api-piece
         - api-review
-      image: johantm/instrument_edge_api:latest     #does not exist
+      image: johantm/instrument_edge_api:latest     #does not exist yet
       ports:
         - '8050:8050'
       environment:
