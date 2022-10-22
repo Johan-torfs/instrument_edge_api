@@ -30,6 +30,7 @@ public class InstrumentController {
     @GetMapping("/instrument/{name}")
     public Instrument getInstrumentWithMusiciansAndPieces(@PathVariable String name) {
         Instrument instrument = restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/instrument/name/{name}", Instrument.class, name);
+        if (instrument == null) return null;
         List<Musician> musicians = Arrays.asList(restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/musician/instrument/name/{name}", Musician[].class, name));
         instrument.setMusicians(musicians);
         List<Piece> pieces = Arrays.asList(restTemplate.getForObject("http://" + pieceServiceBaseUrl + "/name/{name}", Piece[].class, name));
