@@ -43,4 +43,8 @@ public class Musician {
     public Instrument getInstrument() {
         return instrument;
     }
+
+    public void setInstrument(Instrument instrument) {
+        this.instrument = instrument;
+    }
 }

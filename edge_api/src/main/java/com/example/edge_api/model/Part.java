@@ -18,6 +18,10 @@ public class Part {
         return instrument;
     }
 
+    public void setInstrument(Instrument instrument) {
+        this.instrument = instrument;
+    }
+
     public String getName() {
         return name;
     }

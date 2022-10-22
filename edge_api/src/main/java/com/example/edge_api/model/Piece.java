@@ -3,6 +3,7 @@ package com.example.edge_api.model;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Piece {
     @Id
@@ -12,6 +13,7 @@ public class Piece {
     private String composer;
 
     private ArrayList<Part> parts;
+    private List<Review> reviews;
 
     public Piece() {}
 
@@ -50,5 +52,13 @@ public class Piece {
 
     public ArrayList<Part> getParts() {
         return parts;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

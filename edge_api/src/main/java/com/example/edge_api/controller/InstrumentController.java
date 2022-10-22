@@ -20,10 +20,8 @@ public class InstrumentController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Value("${instrumentservice.baseurl}") //needs to be defined in Application Properties, but I'm too lazy to test now anyway (and probably too busy tomorrow)
+    @Value("${instrumentservice.baseurl}")
     private String instrumentServiceBaseUrl;
-    @Value("${musicianservice.baseurl}")
-    private String musicianServiceBaseUrl;
     @Value("${pieceservice.baseurl}")
     private String pieceServiceBaseUrl;
 
@@ -36,5 +34,11 @@ public class InstrumentController {
         List<Piece> pieces = Arrays.asList(restTemplate.getForObject("http://" + pieceServiceBaseUrl + "/name/{name}", Piece[].class, name));
         instrument.setPieces(pieces);
         return instrument;
+    }
+
+    @GetMapping("/instrument")
+    public List<Instrument> getInstrumentList() {
+        List<Instrument> instruments = Arrays.asList(restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/instrument", Instrument[].class));
+        return instruments; //not including pieces, musicians
     }
 }
