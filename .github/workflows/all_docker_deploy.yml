@@ -1,0 +1,21 @@
+name: Build and deliver all docker containers
+
+on: 
+  workflow_run:
+    workflows: ["Build and test all APIs"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  all-deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    name: All Deploy Docker
+    strategy:
+      matrix:
+        api-name: [instrument_api, piece_api, review_api]
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
+    with:
+      api-name: ${{ matrix.api-name }}
+      run-id: ${{ github.event.workflow_run.id }}
+    secrets: inherit

@@ -1,0 +1,72 @@
+version: '3'
+services:
+    mysql-instrument:
+        image: 'mysql/mysql-server:8.0'
+        ports:
+            - '3306:3306'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: '${INSTRUMENT_DATABASE}'
+            MYSQL_USER: '${INSTRUMENT_USERNAME:-citizix}'
+            MYSQL_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 1
+        volumes:
+            - 'mysql-instrument:/var/lib/mysql'
+    mongodb-piece:
+        image: mongo:5.0
+        ports:
+          - '27017:27017'
+        volumes:
+          - mongo-piece:/data/db
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: '${PIECE_USERNAME:-citizix}'
+          MONGO_INITDB_ROOT_PASSWORD: '${PIECE_PASSWORD:-S3cret}'
+          MONGO_INITDB_DATABASE: '${PIECE_DB_NAME}'
+    mongodb-review:
+        image: mongo:5.0
+        ports:
+          - '27018:27017'
+        volumes:
+          - mongo-review:/data/db
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: '${REVIEW_USERNAME:-citizix}'
+          MONGO_INITDB_ROOT_PASSWORD: '${REVIEW_PASSWORD:-S3cret}'
+          MONGO_INITDB_DATABASE: '${REVIEW_DB_NAME}'
+    api-instrument:
+      depends_on:
+        - mysql-instrument
+      image: johantm/instrument_instrument_api:latest
+      ports: 
+        - '8051:8051'
+      environment:
+        MYSQL_DB_HOST: 'mysql-instrument'
+        MYSQL_DB_PORT: 3306
+        MYSQL_DB_USERNAME: '${INSTRUMENT_USERNAME:-root}'
+        MYSQL_DB_PASSWORD: '${INSTRUMENT_PASSWORD:-S3cret}'
+    api-piece:
+      depends_on:
+        - mongodb-piece
+      image: johantm/instrument_piece_api:latest
+      ports: 
+        - '8052:8052'
+      environment:
+        FORWARD_PIECE_HOST: 'mongodb-review'
+        FORWARD_PIECE_PORT: 27017
+        PIECE_USERNAME: '${PIECE_USERNAME:-citizix}'
+        PIECE_PASSWORD: '${PIECE_PASSWORD:-S3cret}'
+    api-review:
+      depends_on:
+        - mongodb-review
+      image: johantm/instrument_review_api:latest
+      ports: 
+        - '8053:8053'
+      environment:
+        FORWARD_REVIEW_HOST: 'mongodb-review'
+        FORWARD_REVIEW_PORT: 27017
+        REVIEW_USERNAME: '${REVIEW_USERNAME:-citizix}'
+        REVIEW_PASSWORD: '${REVIEW_PASSWORD:-S3cret}'
+volumes:
+  mysql-instrument:
+  mongo-piece:
+  mongo-review:

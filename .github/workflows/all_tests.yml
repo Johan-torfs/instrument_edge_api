@@ -1,0 +1,31 @@
+name: Build and test all APIs
+
+on: 
+  pull_request:
+    branches:
+      - 'dev'
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  all-tests:
+    name: All API Tests
+    strategy:
+      matrix:
+        include:
+          - api-name: instrument_api
+            database: sql
+            database-port: 3306
+          - api-name: piece_api
+            database: mongo
+            database-port: 27017
+          - api-name: review_api
+            database: mongo
+            database-port: 27018
+    uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
+    with:
+      api-name: ${{ matrix.api-name }}
+      database: ${{ matrix.database }}
+      database-port: ${{ matrix.database-port }}
+    secrets: inherit

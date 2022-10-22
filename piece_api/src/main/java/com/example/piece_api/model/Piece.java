@@ -17,10 +17,6 @@ public class Piece {
 
     public Piece() {}
 
-    public Piece(String name) {
-        this.name = name;
-    }
-
     public Piece(String name, String period, String composer, ArrayList<Part> parts) {
         this.name = name;
         this.period = period;

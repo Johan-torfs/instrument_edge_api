@@ -1,0 +1,36 @@
+name: Build and deliver docker container
+
+on:
+  workflow_call:
+    inputs:
+      api-name:
+        required: true
+        type: string
+      run-id:
+        required: true
+        type: string
+
+jobs:
+  docker:
+    name: Deliver Container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: all_tests.yml
+          run_id: ${{ inputs.run_id }}
+          name: ${{ inputs.api-name }}-jar
+          path: ./${{ inputs.api-name }}/target
+        
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Docker Build
+        run: docker build -t ${{ secrets.DOCKER_USER }}/instrument_${{ inputs.api-name }}:latest ./${{ inputs.api-name }}
+
+      - name: Upload container to Docker Hub with Push
+        run: docker push ${{ secrets.DOCKER_USER }}/instrument_${{ inputs.api-name }}:latest

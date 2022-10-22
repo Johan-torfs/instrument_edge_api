@@ -1,0 +1,61 @@
+name: Build and test API
+
+on:
+  workflow_call:
+    inputs:
+      api-name:
+        required: true
+        type: string
+      database:
+        type: string
+      database-port:
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: API Java 17 build and test
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: corretto
+          cache: maven
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+          settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+      - name: Start MongoDB for integration test
+        if: ${{ inputs.database == 'mongo' }}
+        uses: supercharge/mongodb-github-action@1.8.0
+        with:
+          mongodb-username: citizix
+          mongodb-password: S3cret
+          mongodb-port: ${{ inputs.database-port }}
+
+      - name: Start MySQL for integration test
+        if: ${{ inputs.database == 'sql' }}
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          host port: ${{ inputs.database-port }}
+          mysql root password: S3cret
+      
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: ${{inputs.api-name}}
+          args: >
+            -Dsonar.organization=johantorfs
+            -Dsonar.projectKey=JohanTorfs_instrument_edge_api
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: ${{inputs.api-name}}-jar
+          path: ./${{inputs.api-name}}/target/*.jar

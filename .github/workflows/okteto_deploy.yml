@@ -1,0 +1,27 @@
+name: Deploy to Okteto
+
+on:
+  workflow_run:
+    workflows: ["Build and deliver all docker containers"]
+    branches: [main]
+    types: 
+      - completed
+
+
+jobs:
+  okteto:
+    name: Deploy to Okteto
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+        
+      - name: Install Okteto CLI
+        run: curl https://get.okteto.com -sSfL | sh
+
+      - name: Login to Okteto
+        run: okteto --token ${{ secrets.OKTETO_TOKEN }} context use https://cloud.okteto.com
+
+      - name: Build Okteto Cluster
+        run: okteto deploy --wait
