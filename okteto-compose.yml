@@ -75,9 +75,9 @@ services:
       ports:
         - '8050:8050'
       environment:
-        INSTRUMENT_SERVICE_BASEURL: instrument-service:8051
-        PIECE_SERVICE_BASEURL: piece-service:8052
-        REVIEW_SERVICE_BASEURL: review-service:8053
+        INSTRUMENT_SERVICE_BASEURL: instrument-service
+        PIECE_SERVICE_BASEURL: piece-service
+        REVIEW_SERVICE_BASEURL: review-service
 volumes:
   mysql-instrument:
   mongo-piece:
