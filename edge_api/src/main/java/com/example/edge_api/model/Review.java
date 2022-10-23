@@ -1,9 +1,6 @@
 package com.example.edge_api.model;
 
-import org.springframework.data.annotation.Id;
-
 public class Review {
-    @Id
     private String id;
     private int rating;
     private String comment;

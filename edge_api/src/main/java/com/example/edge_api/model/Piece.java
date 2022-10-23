@@ -1,12 +1,9 @@
 package com.example.edge_api.model;
 
-import org.springframework.data.annotation.Id;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Piece {
-    @Id
     private String id;
     private String name;
     private String period;
