@@ -2,10 +2,7 @@ package com.example.edge_api.model;
 
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
-
 public class Instrument {
-    @Id
     private String id;
     private String name;
     private String period;
