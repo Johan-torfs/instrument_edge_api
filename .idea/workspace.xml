@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="change sql query" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/model/Instrument.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="2Fry0YhqbbRjVrxgQ0N54YfmKOH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/instrument_api" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.instrument_api.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Thomas More\Bacholer\Advanced programming and mobile development\instrument_api\src\main\java\com\example\instrument_api\controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Thomas More\Bacholer\Advanced programming and mobile development\instrument_api\src\main\java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.InstrumentApiApplication">
+    <configuration name="InstrumentApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="instrument_api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.instrument_api.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.instrument_api.InstrumentApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PieceApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="piece_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.piece_api.PieceApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="review_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.review_api.ReviewApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.InstrumentApiApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="" />
+      <created>1665264274636</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665264274636</updated>
+      <workItem from="1665264275884" duration="7828000" />
+      <workItem from="1665337592423" duration="3512000" />
+      <workItem from="1665345735492" duration="11751000" />
+      <workItem from="1665424322757" duration="9567000" />
+      <workItem from="1665509884943" duration="308000" />
+      <workItem from="1665511418530" duration="28449000" />
+      <workItem from="1665662026445" duration="8000" />
+      <workItem from="1665662049357" duration="606000" />
+      <workItem from="1665663727356" duration="5000" />
+      <workItem from="1665663759739" duration="12000" />
+      <workItem from="1665663783487" duration="1344000" />
+      <workItem from="1665665140692" duration="2824000" />
+      <workItem from="1665675665398" duration="52000" />
+      <workItem from="1665675740113" duration="22265000" />
+      <workItem from="1665698434969" duration="426000" />
+      <workItem from="1665698875934" duration="6385000" />
+      <workItem from="1665730558700" duration="4079000" />
+      <workItem from="1665735075159" duration="402000" />
+      <workItem from="1665736482746" duration="1027000" />
+      <workItem from="1665737533516" duration="1615000" />
+      <workItem from="1665739166233" duration="4944000" />
+      <workItem from="1665753978829" duration="5143000" />
+      <workItem from="1665782684927" duration="24490000" />
+      <workItem from="1665947477001" duration="4820000" />
+      <workItem from="1665981642253" duration="15000" />
+      <workItem from="1665981674585" duration="23000" />
+      <workItem from="1666039269322" duration="33000" />
+    </task>
+    <task id="LOCAL-00001" summary="API Mysql">
+      <created>1665733218628</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665733218628</updated>
+    </task>
+    <task id="LOCAL-00002" summary="API Mysql v1">
+      <created>1665751637778</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665751637778</updated>
+    </task>
+    <task id="LOCAL-00003" summary="API Mysql v2">
+      <created>1665751841951</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665751841951</updated>
+    </task>
+    <task id="LOCAL-00004" summary="API Mysql v2">
+      <created>1665751987281</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665751987281</updated>
+    </task>
+    <task id="LOCAL-00005" summary="API instrument and musicianlist">
+      <created>1665937278401</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665937278401</updated>
+    </task>
+    <task id="LOCAL-00006" summary="API instrument and musicianlist v1">
+      <created>1665950371136</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665950371136</updated>
+    </task>
+    <task id="LOCAL-00007" summary="API instrument and musicianlist v2">
+      <created>1665950654311</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665950654311</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Queay MusicianRepository update">
+      <created>1665951891081</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665951891081</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change sql query">
+      <created>1665952428334</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1665952428334</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="API Mysql" />
+    <MESSAGE value="API Mysql v1" />
+    <MESSAGE value="API Mysql v2" />
+    <MESSAGE value="API instrument and musicianlist" />
+    <MESSAGE value="API instrument and musicianlist v1" />
+    <MESSAGE value="API instrument and musicianlist v2" />
+    <MESSAGE value="Queay MusicianRepository update" />
+    <MESSAGE value="change sql query" />
+    <option name="LAST_COMMIT_MESSAGE" value="change sql query" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/instrument_api/src/main/java/Controllers/MusicianController.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/service/MusicianService.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/controller/MusicianController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((Class[])((JdkDynamicAopProxy)this.h).proxiedInterfaces)[4].name.value[0]" custom="org.springframework.aop.framework.JdkDynamicAopProxy,java.lang.reflect.Proxy,java.lang.Class[],com.example.instrument_api.service.InstrumentService" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
