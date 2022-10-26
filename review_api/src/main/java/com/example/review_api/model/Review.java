@@ -52,7 +52,7 @@ public class Review {
         return pieceName;
     }
 
-    public void setPieceId(String pieceName) {
+    public void setPieceName(String pieceName) {
         this.pieceName = pieceName;
     }
 }

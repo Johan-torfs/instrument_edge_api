@@ -28,24 +28,24 @@ public class PieceController {
     @Value("${reviewservice.baseurl}")
     private String reviewServiceBaseUrl;
 
-    @GetMapping("/piece/{name}")
+    @GetMapping("/piece/{name}") //Currently errors because of instrument absence
     public Piece getPieceWithReviewsAndPartsAndInstrument(@PathVariable String name) {
-        Piece[] pieces = restTemplate.getForObject("http://" + pieceServiceBaseUrl + "/name/{name}", Piece[].class, name);
+        Piece[] pieces = restTemplate.getForObject(pieceServiceBaseUrl + "/name/{name}", Piece[].class, name);
         if (pieces == null || pieces.length < 1) {
             return null;
         }
         Piece piece = pieces[0];
         for (Part part : piece.getParts()) {
-            part.setInstrument(restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/instrument/{id}", Instrument.class, part.getInstrumentId()));
+            part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{id}", Instrument.class, part.getInstrumentId()));
         }
-        List<Review> reviews = Arrays.asList(restTemplate.getForObject("http://" + reviewServiceBaseUrl + "/piece/{id}", Review[].class, piece.getId()));
+        List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
         piece.setReviews(reviews);
         return piece;
     }
 
     @GetMapping("/piece")
     public List<Piece> getPieceList() {
-        List<Piece> pieces = Arrays.asList(restTemplate.getForObject("http://" + pieceServiceBaseUrl + "/", Piece[].class));
+        List<Piece> pieces = Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/", Piece[].class));
         return pieces; //not including instruments or reviews
     }
 }

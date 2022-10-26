@@ -2,6 +2,7 @@ package com.example.review_api.controller;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -41,9 +42,9 @@ public class ReviewController {
         return reviewRepository.findById(id).orElse(null);
     }
 
-    @GetMapping("/piece/{id}")
-    public List<Review> getReviewsByPieceId(@PathVariable String id) {
-        return reviewRepository.findReviewsByPieceId(id);
+    @GetMapping("/piece/{name}")
+    public List<Review> getReviewsByPieceName(@PathVariable String name) {
+        return reviewRepository.findReviewsByPieceName(name);
     }
 
     @PostMapping("/")
@@ -52,7 +53,7 @@ public class ReviewController {
     }
 
     @PutMapping("/{id}")
-    public Review editReview(@RequestBody Review newReview, @PathVariable String id) {
+    public Review editReview(@PathVariable String id, @RequestBody Review newReview) {
         return reviewRepository.findById(id)
             .map(review -> {
                 review.setComment(newReview.getComment());
@@ -60,8 +61,16 @@ public class ReviewController {
                 return reviewRepository.save(review);
             })
             .orElseGet(() -> {
-                return reviewRepository.save(newReview);
+                return null;
             });
 
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteReview(@PathVariable String id) {
+        Optional<Review> reviewOptional = reviewRepository.findById(id);
+        if (reviewOptional.isPresent()) {
+            reviewRepository.delete(reviewOptional.get());
+        }
     }
 }

@@ -2,9 +2,10 @@ package com.example.edge_api.model;
 
 public class Part {
     private int instrumentId;
-    private Instrument instrument;
     private String name;
+    private Instrument instrument;
 
+    public Part(){}
     public Part(int instrumentId, String name) {
         this.instrumentId = instrumentId;
         this.name = name;

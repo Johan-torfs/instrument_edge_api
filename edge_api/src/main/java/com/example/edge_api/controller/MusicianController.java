@@ -23,17 +23,17 @@ public class MusicianController {
 
     @GetMapping("/musician/{name}")
     public Musician getMusicianWithInstrument(@PathVariable String name) {
-        Musician musician = restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/musician/name/{name}", Musician.class, name);
+        Musician musician = restTemplate.getForObject(instrumentServiceBaseUrl + "/musician/name/{name}", Musician.class, name);
         if (musician == null) return null;
         /* //Is instrument included in musician get?
-        Instrument instrument = restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/instrument/musician/name/{name}", Instrument.class, name);
+        Instrument instrument = restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/musician/name/{name}", Instrument.class, name);
         musician.setInstrument(instrument);*/
         return musician;
     }
 
     @GetMapping("/musician")
     public List<Musician> getMusicianList() {
-        List<Musician> musicians = Arrays.asList(restTemplate.getForObject("http://" + instrumentServiceBaseUrl + "/musician", Musician[].class));
+        List<Musician> musicians = Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/musician", Musician[].class));
         return musicians; //might include instruments? Depends on instrument api
     }
 }

@@ -4,18 +4,18 @@ public class Review {
     private String id;
     private int rating;
     private String comment;
-    private int pieceId;
+    private String pieceName;
     private Piece piece;
     
     public Review() {}
 
-    public Review(int pieceId, int rating) {
-        this.pieceId = pieceId;
+    public Review(String pieceName, int rating) {
+        this.pieceName = pieceName;
         this.rating = rating;
     }
 
-    public Review(int pieceId, int rating, String comment) {
-        this.pieceId = pieceId;
+    public Review(String pieceName, int rating, String comment) {
+        this.pieceName = pieceName;
         this.rating = rating;
         this.comment = comment;
     }
@@ -40,8 +40,8 @@ public class Review {
         this.comment = comment;
     }
 
-    public int getPieceId() {
-        return pieceId;
+    public String getPieceName() {
+        return pieceName;
     }
 
     public Piece getPiece() {
