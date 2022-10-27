@@ -66,21 +66,6 @@ services:
         FORWARD_REVIEW_PORT: 27017
         REVIEW_USERNAME: '${REVIEW_USERNAME:-citizix}'
         REVIEW_PASSWORD: '${REVIEW_PASSWORD:-S3cret}'
-    api-edge:
-      depends_on:
-        - api-instrument
-        - api-piece
-        - api-review
-      image: johantm/instrument_edge_api:latest     #does not exist yet
-      ports:
-        - '8050:8050'
-      environment:
-        INSTRUMENT_SERVICE_BASEURL: api-instrument
-        PIECE_SERVICE_BASEURL: api-piece
-        REVIEW_SERVICE_BASEURL: api-review
-        INSTRUMENT_SERVICE_PORT: 8051
-        PIECE_SERVICE_PORT: 8052
-        REVIEW_SERVICE_PORT: 8053
 volumes:
   mysql-instrument:
   mongo-piece:
