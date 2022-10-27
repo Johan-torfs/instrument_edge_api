@@ -18,7 +18,7 @@ public class Part {
         return instrumentId;
     }
 
-    public void setInstrument(int instrumentId) {
+    public void setInstrumentId(int instrumentId) {
         this.instrumentId = instrumentId;
     }
 
