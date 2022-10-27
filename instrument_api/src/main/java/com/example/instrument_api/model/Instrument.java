@@ -23,6 +23,7 @@ public class Instrument implements Serializable {
     private String name;
 
     @Column(name="description")
+    @Lob
     private String description;
 
     @Column(name="period")
@@ -31,9 +32,9 @@ public class Instrument implements Serializable {
     @Column(name="collection")
     private String collection;
 
-
     @OneToMany(mappedBy="instrument")
     private Set<Musician> musicians = new HashSet<>();
+
 
 
 }

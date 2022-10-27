@@ -13,7 +13,7 @@ jobs:
     name: All Deploy Docker
     strategy:
       matrix:
-        api-name: [instrument_api, piece_api, review_api]
+        api-name: [instrument_api, piece_api, review_api, edge_api]
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_docker_deploy.yml@main
     with:
       api-name: ${{ matrix.api-name }}

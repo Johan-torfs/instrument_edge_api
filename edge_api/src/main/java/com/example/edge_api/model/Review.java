@@ -1,15 +1,11 @@
-package com.example.review_api.model;
+package com.example.edge_api.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document(collection = "reviews")
 public class Review {
-    @Id
     private String id;
     private int rating;
     private String comment;
     private String pieceName;
+    private Piece piece;
     
     public Review() {}
 
@@ -26,10 +22,6 @@ public class Review {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public int getRating() {
@@ -52,7 +44,11 @@ public class Review {
         return pieceName;
     }
 
-    public void setPieceName(String pieceName) {
-        this.pieceName = pieceName;
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Piece piece) {
+        this.piece = piece;
     }
 }
