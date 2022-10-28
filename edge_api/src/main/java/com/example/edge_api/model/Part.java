@@ -1,26 +1,26 @@
 package com.example.edge_api.model;
 
 public class Part {
-    private int instrumentId;
+    private String instrument;
     private String name;
-    private Instrument instrument;
+    private Instrument instrumentObj;
 
     public Part(){}
-    public Part(int instrumentId, String name) {
-        this.instrumentId = instrumentId;
+    public Part(String instrument, String name) {
+        this.instrument = instrument;
         this.name = name;
     }
 
-    public int getInstrumentId() {
-        return instrumentId;
-    }
-
-    public Instrument getInstrument() {
+    public String getInstrument() {
         return instrument;
     }
 
-    public void setInstrument(Instrument instrument) {
-        this.instrument = instrument;
+    public Instrument getInstrumentObj() {
+        return instrumentObj;
+    }
+
+    public void setInstrumentObj(Instrument instrumentObj) {
+        this.instrumentObj = instrumentObj;
     }
 
     public String getName() {

@@ -14,21 +14,11 @@ public class Piece {
 
     public Piece() {}
 
-    public Piece(String name) {
-        this.name = name;
-    }
-
     public Piece(String name, String period, String composer, ArrayList<Part> parts) {
         this.name = name;
         this.period = period;
         this.composer = composer;
         this.parts = parts;
-    }
-
-    public Piece(String name, String period, String composer) {
-        this.name = name;
-        this.period = period;
-        this.composer = composer;
     }
 
     public String getId() {
