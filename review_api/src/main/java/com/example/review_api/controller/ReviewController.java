@@ -61,9 +61,6 @@ public class ReviewController {
     public Review newReview(@RequestBody ReviewDTO dto) {
         Review review = reviewConverter.convertDtoToEntity(dto);
         reviewRepository.save(review);
-        Logger.info("comments: " + dto.getComment() + " AND " + review.getComment());
-        Logger.info("pieces: " + dto.getPieceName() + " AND " + review.getPieceName());
-        Logger.info("ratings: " + dto.getRating() + " AND " + review.getRating());
         return review;
     }
 
