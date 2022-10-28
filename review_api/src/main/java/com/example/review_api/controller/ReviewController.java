@@ -69,8 +69,8 @@ public class ReviewController {
     @PutMapping("/{id}")
     public Review editReview(@PathVariable String id, @RequestBody ReviewDTO dto) {
         Review review = reviewRepository.findReviewById(id);
-        review.setComment(dto.getComment());
-        review.setRating(dto.getRating());
+        review.setComment(dto.comment);
+        review.setRating(dto.rating);
         reviewRepository.save(review);
         return review;
     }

@@ -30,6 +30,9 @@ public class PieceController {
     @GetMapping("/piece/{name}") //Currently errors because of instrument absence
     public List<Piece> getPieceWithReviewsAndPartsAndInstrument(@PathVariable String name) {
         Piece[] pieces = restTemplate.getForObject(pieceServiceBaseUrl + "/name/{name}", Piece[].class, name);
+        if (pieces == null) {
+            pieces = new Piece[0];
+        }
         if (pieces.length < 1) {
             return new ArrayList<>();
         }
