@@ -14,7 +14,7 @@ public class Piece {
     private String period;
     private String composer;
 
-    private ArrayList<Part> parts;
+    private List<Part> parts;
 
     public Piece() {}
 
