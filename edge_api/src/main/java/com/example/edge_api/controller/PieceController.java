@@ -34,9 +34,10 @@ public class PieceController {
         if (pieces == null || pieces.length < 1) {
             return null;
         }
-        Piece piece = pieces[0];
-        for (Part part : piece.getParts()) {
-            part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{id}", Instrument.class, part.getInstrumentId()));
+        for (Piece piece : pieces) {
+            for (Part part : piece.getParts()) {
+                part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
+            }
         }
         List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
         piece.setReviews(reviews);
