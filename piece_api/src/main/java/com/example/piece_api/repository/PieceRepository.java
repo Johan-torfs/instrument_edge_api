@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface PieceRepository extends MongoRepository<Piece, String> {
+    Piece findPieceById(String id);
     @Query("{\"name\": { $regex: ?0 }}")
     List<Piece> findPieceByNameRegex(String name);
     @Query("{\"parts.instrument\": ?0 }")

@@ -91,6 +91,33 @@ public class PieceControllerUnitTests {
     }
 
     @Test
+    public void onCallGivenIdOfPieceWithNoParts_getPieceById_returnPiece() throws Exception {
+        given(pieceRepository.findPieceById(pieceList.get(0).getId())).willReturn(pieceList.get(0));
+
+        mockMvc.perform(get("/{id}", pieceList.get(0).getId()))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name",is("Requerdos de la Alhambra")))
+                .andExpect(jsonPath("$.period",is("19th century")))
+                .andExpect(jsonPath("$.composer",is("Francisco Tárrega")));
+    }
+
+    @Test
+    public void onCallGivenIdOfPieceWithOnePart_getPieceById_returnPiece() throws Exception {
+        given(pieceRepository.findPieceById(pieceList.get(1).getId())).willReturn(pieceList.get(1));
+
+        mockMvc.perform(get("/{id}", pieceList.get(1).getId()))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name",is("Julia Florida")))
+                .andExpect(jsonPath("$.period",is("20th century")))
+                .andExpect(jsonPath("$.composer",is("Agustin Barrios Mangoré")))
+                .andExpect(jsonPath("$.parts",hasSize(1)))
+                .andExpect(jsonPath("$.parts[0].instrument",is("Guitar")))
+                .andExpect(jsonPath("$.parts[0].name",is("Solo")));
+    }
+
+    @Test
     public void onCallGivenNameOfPiece_getPieceByName_returnPiece() throws Exception {
         given(pieceRepository.findPieceByNameRegex(pieceList.get(1).getName())).willReturn(pieceList.subList(1, 2));
 

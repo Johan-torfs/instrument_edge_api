@@ -42,6 +42,11 @@ public class PieceController {
         return pieceRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Piece getPieceById(@PathVariable String id) {
+        return pieceRepository.findPieceById(id);
+    }
+
     @GetMapping("/name/{name}")
     public List<Piece> getPieceByName(@PathVariable String name) {
         return pieceRepository.findPieceByNameRegex(name);
