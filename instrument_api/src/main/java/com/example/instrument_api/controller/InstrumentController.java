@@ -48,20 +48,14 @@ public class InstrumentController {
         instrumentService.save(instrument4);
         instrumentService.save(instrument5);
 
-        Logger.info("Instruments added:");
-        for (Instrument instrument: instrumentService.getAllInstruments()) {
-            Logger.info(instrument);
-        }
+        Logger.info("Instruments added");
 
         musicianService.save(new Musician(1,"Svend Asmussen", 1916,2017, instrument4));
         musicianService.save(new Musician(2,"Bartolo Alvarez",1914,2017, instrument3));
         musicianService.save(new Musician(3,"Ray Anthony",1922,2022, instrument2));
         musicianService.save(new Musician(4,"Irving Fields",1915,2016, instrument1));
 
-        Logger.info("Musicians added:");
-        for (Musician musician: musicianService.getAllMusicians()) {
-            Logger.info(musician);
-        }
+        Logger.info("Musicians added");
     }
 
     @GetMapping

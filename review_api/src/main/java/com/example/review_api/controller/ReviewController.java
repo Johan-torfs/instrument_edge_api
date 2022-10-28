@@ -39,10 +39,7 @@ public class ReviewController {
         reviewRepository.save(new Review("Julia Florida", 3, "I don't get how anyone can like this..."));
         reviewRepository.save(new Review("Asturias", 7));
 
-        Logger.info("Reviews added:");
-        for (Review review: reviewRepository.findAll()) {
-            Logger.info(review);
-        }
+        Logger.info("Reviews added");
     }
     
     @GetMapping("/")
@@ -64,14 +61,17 @@ public class ReviewController {
     public Review newReview(@RequestBody ReviewDTO dto) {
         Review review = reviewConverter.convertDtoToEntity(dto);
         reviewRepository.save(review);
+        Logger.info("comments: " + dto.getComment() + " AND " + review.getComment());
+        Logger.info("pieces: " + dto.getPieceName() + " AND " + review.getPieceName());
+        Logger.info("ratings: " + dto.getRating() + " AND " + review.getRating());
         return review;
     }
 
     @PutMapping("/{id}")
     public Review editReview(@PathVariable String id, @RequestBody ReviewDTO dto) {
         Review review = reviewRepository.findReviewById(id);
-        review.setComment(dto.comment);
-        review.setRating(dto.rating);
+        review.setComment(dto.getComment());
+        review.setRating(dto.getRating());
         reviewRepository.save(review);
         return review;
     }

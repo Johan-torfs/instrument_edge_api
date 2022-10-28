@@ -61,10 +61,7 @@ public class PieceController {
 
         pieceRepository.save(new Piece("The Four Seasons (Vivaldi): La primavera", "18th century", "Antonio Vivaldi", parts));
 
-        Logger.info("Pieces added:");
-        for (Piece piece: pieceRepository.findAll()) {
-            Logger.info(piece);
-        }
+        Logger.info("Pieces added");
 
     }
 

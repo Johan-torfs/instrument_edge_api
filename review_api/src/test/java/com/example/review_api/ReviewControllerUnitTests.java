@@ -99,7 +99,7 @@ class ReviewControllerUnitTests {
                 .andExpect(jsonPath("$[1].rating",is(7)))
                 .andExpect(jsonPath("$[1].comment",is("Comment2")));
     }
-    //For the next 3 tests, something is wrong in how the repository saves data, this returns null
+    
     @Test
     void whenPostReview_thenReturnJsonReview() throws Exception {
         Review review1 = new Review("Piece1", 5, "Comment1");
