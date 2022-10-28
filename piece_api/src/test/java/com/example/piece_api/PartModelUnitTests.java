@@ -18,9 +18,9 @@ public class PartModelUnitTests {
     }
 
     @Test
-    public void setInstrumentId_method() throws Exception {
+    public void setInstrument_method() throws Exception {
         Part part = new Part();
-        part.setInstrumentId(5);
-        Assertions.assertEquals(part.getInstrumentId(), 5);
+        part.setInstrument("Guitar");
+        Assertions.assertEquals(part.getInstrument(), "Guitar");
     }
 }

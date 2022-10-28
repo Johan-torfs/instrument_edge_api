@@ -23,7 +23,7 @@ public class PieceController {
             pieceRepository.delete(piece);
         }
         ArrayList<Part> parts = new ArrayList<Part>();
-        parts.add(new Part(5, "Solo"));
+        parts.add(new Part("Guitar", "Solo"));
 
         pieceRepository.save(new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", parts));
         pieceRepository.save(new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", parts));
@@ -42,19 +42,14 @@ public class PieceController {
         return pieceRepository.findAll();
     }
 
-    @GetMapping("/{id}")
-    public Piece getPieceById(@PathVariable String id) {
-        return pieceRepository.findPieceById(id);
-    }
-
     @GetMapping("/name/{name}")
     public List<Piece> getPieceByName(@PathVariable String name) {
         return pieceRepository.findPieceByName(name);
     }
 
-    @GetMapping("/instrument/{id}")
-    public List<Piece> getPieceByInstrument(@PathVariable int id) {
-        return pieceRepository.findPieceByInstrument(id);
+    @GetMapping("/instrument/{name}")
+    public List<Piece> getPieceByInstrument(@PathVariable String name) {
+        return pieceRepository.findPieceByInstrument(name);
     }
 
     @GetMapping("/composer/{name}")

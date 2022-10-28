@@ -9,10 +9,9 @@ import java.util.List;
 
 @Repository
 public interface PieceRepository extends MongoRepository<Piece, String> {
-    Piece findPieceById(String id);
     List<Piece> findPieceByName(String name);
-    @Query("{\"parts.instrumentId\": ?0}")
-    List<Piece> findPieceByInstrument(int id);
+    @Query("{\"parts.instrument\": ?0}")
+    List<Piece> findPieceByInstrument(String name);
     List<Piece> findPieceByComposer(String name);
     List<Piece> findPieceByPeriod(String name);
 }

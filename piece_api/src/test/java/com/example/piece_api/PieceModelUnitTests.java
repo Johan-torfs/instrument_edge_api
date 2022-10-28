@@ -37,7 +37,7 @@ public class PieceModelUnitTests {
         Piece piece = new Piece();
 
         ArrayList<Part> parts = new ArrayList<Part>();
-        parts.add(new Part(5, "Solo"));
+        parts.add(new Part("Guitar", "Solo"));
 
         piece.setParts(parts);
         Assertions.assertEquals(piece.getParts(), parts);

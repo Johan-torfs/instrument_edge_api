@@ -38,13 +38,13 @@ public class PieceControllerIntegrationTests {
 
         pieceRepository.deleteAll();
         ArrayList<Part> parts = new ArrayList<Part>();
-        parts.add(new Part(5, "Solo"));
+        parts.add(new Part("Guitar", "Solo"));
 
         Piece piece1 = new Piece("Requerdos de la Alhambra", "19th century", "Francisco Tárrega");
         Piece piece2 = new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", parts);
 
         parts = new ArrayList<Part>();
-        parts.add(new Part(3, "Baseline"));
+        parts.add(new Part("Banjo", "Baseline"));
         Piece piece3 = new Piece("Asturias", "19th century", "Isaac Albéniz", parts);
         Piece piece4 = new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", parts);
 
@@ -78,43 +78,20 @@ public class PieceControllerIntegrationTests {
                 .andExpect(jsonPath("$[1].period",is("20th century")))
                 .andExpect(jsonPath("$[1].composer",is("Agustin Barrios Mangoré")))
                 .andExpect(jsonPath("$[1].parts",hasSize(1)))
-                .andExpect(jsonPath("$[1].parts[0].instrumentId",is(5)))
+                .andExpect(jsonPath("$[1].parts[0].instrument",is("Guitar")))
                 .andExpect(jsonPath("$[1].parts[0].name",is("Solo")))
                 .andExpect(jsonPath("$[2].name",is("Asturias")))
                 .andExpect(jsonPath("$[2].period",is("19th century")))
                 .andExpect(jsonPath("$[2].composer",is("Isaac Albéniz")))
                 .andExpect(jsonPath("$[2].parts",hasSize(1)))
-                .andExpect(jsonPath("$[2].parts[0].instrumentId",is(3)))
+                .andExpect(jsonPath("$[2].parts[0].instrument",is("Banjo")))
                 .andExpect(jsonPath("$[2].parts[0].name",is("Baseline")))
                 .andExpect(jsonPath("$[3].name",is("Una Limosna por el Amor de Dios")))
                 .andExpect(jsonPath("$[3].period",is("20th century")))
                 .andExpect(jsonPath("$[3].composer",is("Agustin Barrios Mangoré")))
                 .andExpect(jsonPath("$[3].parts",hasSize(1)))
-                .andExpect(jsonPath("$[3].parts[0].instrumentId",is(3)))
+                .andExpect(jsonPath("$[3].parts[0].instrument",is("Banjo")))
                 .andExpect(jsonPath("$[3].parts[0].name",is("Baseline")));
-    }
-
-    @Test
-    public void onCallGivenIdOfPieceWithNoParts_getPieceById_returnPiece() throws Exception {
-        mockMvc.perform(get("/{id}", pieceList.get(0).getId()))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name",is("Requerdos de la Alhambra")))
-                .andExpect(jsonPath("$.period",is("19th century")))
-                .andExpect(jsonPath("$.composer",is("Francisco Tárrega")));
-    }
-
-    @Test
-    public void onCallGivenIdOfPieceWithOnePart_getPieceById_returnPiece() throws Exception {
-        mockMvc.perform(get("/{id}", pieceList.get(1).getId()))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name",is("Julia Florida")))
-                .andExpect(jsonPath("$.period",is("20th century")))
-                .andExpect(jsonPath("$.composer",is("Agustin Barrios Mangoré")))
-                .andExpect(jsonPath("$.parts",hasSize(1)))
-                .andExpect(jsonPath("$.parts[0].instrumentId",is(5)))
-                .andExpect(jsonPath("$.parts[0].name",is("Solo")));
     }
 
     @Test
@@ -127,13 +104,13 @@ public class PieceControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].period",is("20th century")))
                 .andExpect(jsonPath("$[0].composer",is("Agustin Barrios Mangoré")))
                 .andExpect(jsonPath("$[0].parts",hasSize(1)))
-                .andExpect(jsonPath("$[0].parts[0].instrumentId",is(5)))
+                .andExpect(jsonPath("$[0].parts[0].instrument",is("Guitar")))
                 .andExpect(jsonPath("$[0].parts[0].name",is("Solo")));
     }
 
     @Test
-    public void onCallGivenInstrumentId_getPieceByInstrument_returnPiece() throws Exception {
-        mockMvc.perform(get("/instrument/{id}", 5))
+    public void onCallGivenInstrument_getPieceByInstrument_returnPiece() throws Exception {
+        mockMvc.perform(get("/instrument/{name}", "Guitar"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
@@ -141,7 +118,7 @@ public class PieceControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].period",is("20th century")))
                 .andExpect(jsonPath("$[0].composer",is("Agustin Barrios Mangoré")))
                 .andExpect(jsonPath("$[0].parts",hasSize(1)))
-                .andExpect(jsonPath("$[0].parts[0].instrumentId",is(5)))
+                .andExpect(jsonPath("$[0].parts[0].instrument",is("Guitar")))
                 .andExpect(jsonPath("$[0].parts[0].name",is("Solo")));
     }
 
@@ -155,13 +132,13 @@ public class PieceControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].period",is("20th century")))
                 .andExpect(jsonPath("$[0].composer",is("Agustin Barrios Mangoré")))
                 .andExpect(jsonPath("$[0].parts",hasSize(1)))
-                .andExpect(jsonPath("$[0].parts[0].instrumentId",is(5)))
+                .andExpect(jsonPath("$[0].parts[0].instrument",is("Guitar")))
                 .andExpect(jsonPath("$[0].parts[0].name",is("Solo")))
                 .andExpect(jsonPath("$[1].name",is("Una Limosna por el Amor de Dios")))
                 .andExpect(jsonPath("$[1].period",is("20th century")))
                 .andExpect(jsonPath("$[1].composer",is("Agustin Barrios Mangoré")))
                 .andExpect(jsonPath("$[1].parts",hasSize(1)))
-                .andExpect(jsonPath("$[1].parts[0].instrumentId",is(3)))
+                .andExpect(jsonPath("$[1].parts[0].instrument",is("Banjo")))
                 .andExpect(jsonPath("$[1].parts[0].name",is("Baseline")));
     }
 
@@ -178,7 +155,7 @@ public class PieceControllerIntegrationTests {
                 .andExpect(jsonPath("$[1].period",is("19th century")))
                 .andExpect(jsonPath("$[1].composer",is("Isaac Albéniz")))
                 .andExpect(jsonPath("$[1].parts",hasSize(1)))
-                .andExpect(jsonPath("$[1].parts[0].instrumentId",is(3)))
+                .andExpect(jsonPath("$[1].parts[0].instrument",is("Banjo")))
                 .andExpect(jsonPath("$[1].parts[0].name",is("Baseline")));
     }
 }
