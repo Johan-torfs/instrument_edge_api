@@ -36,7 +36,7 @@ public class PieceController {
         }
         for (Piece piece : pieces) {
             for (Part part : piece.getParts()) {
-                part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
+                part.setInstrumentObj(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
             }
 
             List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));

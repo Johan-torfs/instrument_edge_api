@@ -21,6 +21,13 @@ public class Musician {
         this.deathYear = deathYear;
     }
 
+    public Musician(String name, int birthYear, int deathYear, Instrument instrument) {
+        this.name = name;
+        this.birthYear = birthYear;
+        this.deathYear = deathYear;
+        this.instrument = instrument;
+    }
+
     public String getId() {
         return id;
     }
