@@ -27,6 +27,7 @@ public class ReviewController {
     @Autowired
     ReviewConverter reviewConverter;
 
+    //Literally just a comment so I have a code change in the hope sonar scans the right api this time
     @PostConstruct
     public void fillDB() {
         for (Review review: reviewRepository.findAll()) {
