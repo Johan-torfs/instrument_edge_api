@@ -1,7 +1,7 @@
 package com.example.instrument_api.controller;
 
 import com.example.instrument_api.model.Musician;
-import com.example.instrument_api.service.MusicianService;
+import com.example.instrument_api.repository.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +17,14 @@ import java.util.List;
 public class MusicianController {
 
     @Autowired
-    MusicianService musicianService;
+    MusicianRepository musicianRepository;
 
     // GET /{id}: Musician
     @GetMapping("/{id}") //path parameter
-    public Musician getMusician(@PathVariable int id)
+    public Musician getInstrumentById(@PathVariable int id)
     {
         try{
-            return musicianService.musicianById(id);
+            return musicianRepository.findMusicianById(id);
         }
         catch (Exception e){
             throw new ResponseStatusException(
@@ -37,7 +37,7 @@ public class MusicianController {
     public Musician getMusicianName(@PathVariable String name)
     {
         try{
-            return musicianService.getMusicianByName(name);
+            return musicianRepository.findMusicianByName(name);
         }
         catch (Exception e){
             throw new ResponseStatusException(
@@ -49,21 +49,21 @@ public class MusicianController {
     @GetMapping("/year/{year}") //path parameter
     public List<Musician> getMusicianYear(@PathVariable int year)
     {
-        return musicianService.getMusiciansByYear(year);
+        return musicianRepository.findAllByFromYear(year);
     }
 
 //    // GET /instrument/{id}: MusicianList
     @GetMapping("/instrument/{id}") //path parameter
     public List<Musician> getMusicianInstrument(@PathVariable int id)
     {
-        return musicianService.getMusiciansByInstrumentId(id);
+        return musicianRepository.findMusicianByInstrument_Id(id);
     }
 
     // GET /instrument/name/{name}: MusicianList
     @GetMapping("instrument/name/{name}") //path parameter
     public List<Musician> getMusicianInstrumentName(@PathVariable String name)
     {
-        return musicianService.getMusiciansByNameContaining(name);
+        return musicianRepository.findMusicianByInstrument_Name(name);
     }
 
 }

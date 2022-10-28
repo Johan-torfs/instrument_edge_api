@@ -1,7 +1,7 @@
 package com.example.instrument_api.controller;
 
 import com.example.instrument_api.model.Instrument;
-import com.example.instrument_api.service.InstrumentService;
+import com.example.instrument_api.repository.InstrumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,20 +17,20 @@ import java.util.List;
 public class InstrumentController {
 
     @Autowired
-    InstrumentService instrumentService;
+    InstrumentRepository instrumentRepository;
 
     @GetMapping
     public List<Instrument>getInstruments()
     {
-        return instrumentService.getAllInstruments();
+        return instrumentRepository.findAll();
     }
 
     // GET /instrument/{id}: Instrument
     @GetMapping("/{id}")
-    public Instrument getInstrument(@PathVariable(value= "id") int id)
+    public Instrument getInstrumentById(@PathVariable int id)
     {
         try{
-            return instrumentService.getInstrumentById(id);
+            return instrumentRepository.findInstrumentById(id);
         }
         catch (Exception e){
             throw new ResponseStatusException(
@@ -44,7 +44,7 @@ public class InstrumentController {
     public Instrument getInstrumentByName(@PathVariable String name)
     {
         try{
-            return instrumentService.getInstrumentByName(name);
+            return instrumentRepository.findInstrumentByName(name);
         }
         catch (Exception e){
             throw new ResponseStatusException(
@@ -57,6 +57,12 @@ public class InstrumentController {
     @GetMapping("/period/{name}")
     public List<Instrument> getInstrumentsPeriodByName(@PathVariable String name)
     {
-        return instrumentService.getInstrumentsByNamePeriod(name);
+        try{
+            return instrumentRepository.findInstrumentByPeriod(name);
+        }
+        catch (Exception e){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Foo Not Found", e);
+        }
     }
 }

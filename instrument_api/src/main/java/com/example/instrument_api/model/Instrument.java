@@ -15,7 +15,7 @@ import java.util.Set;
 @Table(name = "Instrument")
 public class Instrument implements Serializable {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="id")
     private int id;
 
@@ -32,9 +32,14 @@ public class Instrument implements Serializable {
     @Column(name="collection")
     private String collection;
 
-    @OneToMany(mappedBy="instrument")
+    @OneToMany(mappedBy="instrument", cascade = CascadeType.ALL)
     private Set<Musician> musicians = new HashSet<>();
 
-
+    @PrePersist
+    public void onCreation(){
+        musicians.forEach(m->{
+            m.setInstrument(this);
+        });
+    }
 
 }
