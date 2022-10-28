@@ -9,13 +9,11 @@ import com.example.review_api.model.Review;
 public class ReviewConverter {
     public ReviewDTO convertEntityToDto(Review review) {
         ModelMapper mapper = new ModelMapper();
-        ReviewDTO dto = mapper.map(review, ReviewDTO.class);
-        return dto;
+        return mapper.map(review, ReviewDTO.class);
     }
 
     public Review convertDtoToEntity(ReviewDTO dto) {
         ModelMapper mapper = new ModelMapper();
-        Review review = mapper.map(dto, Review.class);
-        return review;
+        return mapper.map(dto, Review.class);
     }
 }
