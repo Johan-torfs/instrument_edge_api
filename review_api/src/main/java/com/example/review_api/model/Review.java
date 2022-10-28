@@ -16,6 +16,7 @@ public class Review {
     public Review(String pieceName, int rating) {
         this.pieceName = pieceName;
         this.rating = rating;
+        this.comment = "";
     }
 
     public Review(String pieceName, int rating, String comment) {

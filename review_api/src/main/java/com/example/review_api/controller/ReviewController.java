@@ -5,9 +5,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.review_api.model.Review;
 import com.example.review_api.repository.ReviewRepository;
+
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 public class ReviewController {
@@ -39,7 +45,7 @@ public class ReviewController {
 
     @GetMapping("/{id}")
     public Review getReviewById(@PathVariable String id) {
-        return reviewRepository.findById(id).orElse(null);
+        return reviewRepository.findReviewById(id);
     }
 
     @GetMapping("/piece/{name}")
@@ -47,12 +53,12 @@ public class ReviewController {
         return reviewRepository.findReviewsByPieceName(name);
     }
 
-    @PostMapping("/")
+    @PostMapping(path = "/")
     public Review newReview(@RequestBody Review review) {
         return reviewRepository.save(review);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping(path = "/{id}")
     public Review editReview(@PathVariable String id, @RequestBody Review newReview) {
         return reviewRepository.findById(id)
             .map(review -> {
@@ -63,14 +69,15 @@ public class ReviewController {
             .orElseGet(() -> {
                 return null;
             });
-
     }
 
     @DeleteMapping("/{id}")
-    public void deleteReview(@PathVariable String id) {
+    public ResponseEntity<String> deleteReview(@PathVariable String id) {
         Optional<Review> reviewOptional = reviewRepository.findById(id);
         if (reviewOptional.isPresent()) {
             reviewRepository.delete(reviewOptional.get());
+            return new ResponseEntity<String>(id, HttpStatus.OK); 
         }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
