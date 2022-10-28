@@ -43,7 +43,7 @@ public class PieceController {
             piece.setReviews(reviews);
         }
 
-        return pieces;
+        return Arrays.asList(pieces);
     }
 
     @GetMapping("/piece")
