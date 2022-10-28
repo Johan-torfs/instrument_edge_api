@@ -54,7 +54,7 @@ class ReviewControllerUnitTests {
     @Test
     void onCallGivenIdOfReviewWithComment_getReviewById_returnReview() throws Exception {
         Review review = new Review("Piece1",5,"Comment1");
-        review.setId("ABC");
+        review.setId("ABC1");
         given(reviewRepository.findReviewById(review.getId())).willReturn(review);
 
         mockMvc.perform(get("/{id}", review.getId()))
@@ -68,7 +68,7 @@ class ReviewControllerUnitTests {
     @Test
     void onCallGivenIdOfReviewWithoutComment_getReviewById_returnReview() throws Exception {
         Review review = new Review("Piece1",5);
-        review.setId("ABC");
+        review.setId("ABC2");
         given(reviewRepository.findReviewById(review.getId())).willReturn(review);
 
         mockMvc.perform(get("/{id}", review.getId()))
@@ -117,8 +117,8 @@ class ReviewControllerUnitTests {
     @Test
     void givenReview_whenPutReview_thenReturnJsonReview() throws Exception {
         Review review = new Review("Piece1",5, "Comment1");
-        review.setId("ABC");
-        given(reviewRepository.findReviewById("ABC")).willReturn(review);
+        review.setId("ABC3");
+        given(reviewRepository.findReviewById(review.getId())).willReturn(review);
         Review updatedReview = new Review("Piece1", 4, "Comment2");
 
         mockMvc.perform(put("/{id}", review.getId())
@@ -134,7 +134,7 @@ class ReviewControllerUnitTests {
     @Test
     void givenReview_whenDeleteReview_thenStatusOk() throws Exception {
         Review review = new Review("Piece1",5, "Comment1");
-        review.setId("ABC");
+        review.setId("ABC4");
         given(reviewRepository.findReviewById(review.getId())).willReturn(review);
 
         mockMvc.perform(delete("/{id}", review.getId())
@@ -144,9 +144,9 @@ class ReviewControllerUnitTests {
 
     @Test
     void givenNoReview_whenDeleteReview_thenStatusNotFound() throws Exception {
-        given(reviewRepository.findReviewById("ABC")).willReturn(null);
+        given(reviewRepository.findReviewById("ABC5")).willReturn(null);
 
-        mockMvc.perform(delete("/{id}", "ABC")
+        mockMvc.perform(delete("/{id}", "ABC5")
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }

@@ -3,10 +3,14 @@ package com.example.review_api.controller;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.review_api.converter.ReviewConverter;
+import com.example.review_api.dto.ReviewDTO;
 import com.example.review_api.model.Review;
 import com.example.review_api.repository.ReviewRepository;
 
@@ -18,6 +22,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
+    ModelMapper modelMapper;
+    @Autowired
+    ReviewConverter reviewConverter;
 
     @PostConstruct
     public void fillDB() {
@@ -53,23 +60,19 @@ public class ReviewController {
     }
 
     @PostMapping("/")
-    public Review newReview(@RequestBody Review review) {
+    public Review newReview(@RequestBody ReviewDTO dto) {
+        Review review = reviewConverter.convertDtoToEntity(dto);
         reviewRepository.save(review);
         return review;
     }
 
     @PutMapping("/{id}")
-    public Review editReview(@PathVariable String id, @RequestBody Review newReview) {
-        reviewRepository.findById(id)
-            .map(review -> {
-                review.setComment(newReview.getComment());
-                review.setRating(newReview.getRating());
-                return reviewRepository.save(review);
-            })
-            .orElseGet(() -> {
-                return null;
-            });
-            return newReview;
+    public Review editReview(@PathVariable String id, @RequestBody ReviewDTO dto) {
+        Review review = reviewRepository.findReviewById(id);
+        review.setComment(dto.getComment());
+        review.setRating(dto.getRating());
+        reviewRepository.save(review);
+        return review;
     }
 
     @DeleteMapping("/{id}")
