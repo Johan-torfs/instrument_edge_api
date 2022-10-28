@@ -24,10 +24,6 @@ public class MusicianController {
     @GetMapping("/musician/{name}")
     public Musician getMusicianWithInstrument(@PathVariable String name) {
         Musician musician = restTemplate.getForObject(instrumentServiceBaseUrl + "/musician/name/{name}", Musician.class, name);
-        if (musician == null) return null;
-        /* //Is instrument included in musician get? // Nu well :)
-        Instrument instrument = restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/musician/name/{name}", Instrument.class, name);
-        musician.setInstrument(instrument);*/
         return musician;
     }
 

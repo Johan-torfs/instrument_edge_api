@@ -7,17 +7,17 @@ public class Instrument {
     private String name;
     private String period;
     private String description;
-    private String group;
+    private String collection;
     private List<Musician> musicians;
     private List<Piece> pieces;
 
     public Instrument() {}
 
-    public Instrument(String name, String period, String description, String group) {
+    public Instrument(String name, String description, String period, String collection) {
         this.name = name;
         this.period = period;
         this.description = description;
-        this.group = group;
+        this.collection = collection;
     }
 
     public String getId() {
@@ -32,8 +32,8 @@ public class Instrument {
         return period;
     }
 
-    public String getGroup() {
-        return group;
+    public String getCollection() {
+        return collection;
     }
 
     public String getDescription() {
