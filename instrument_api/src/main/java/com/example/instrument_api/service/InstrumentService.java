@@ -35,4 +35,12 @@ public class InstrumentService {
     public Instrument getInstrumentById(int id) {
         return instrumentRepository.findById(id).get();
     }
+
+    public void save(Instrument instrument) {
+        instrumentRepository.save(instrument);
+    } 
+
+    public void delete(Instrument instrument) {
+        instrumentRepository.delete(instrument);
+    } 
 }

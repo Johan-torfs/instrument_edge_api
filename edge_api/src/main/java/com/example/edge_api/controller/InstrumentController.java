@@ -31,7 +31,7 @@ public class InstrumentController {
         if (instrument == null) return null;
         List<Musician> musicians = Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/musician/instrument/name/{name}", Musician[].class, name));
         instrument.setMusicians(musicians);
-        List<Piece> pieces = Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/name/{name}", Piece[].class, name));
+        List<Piece> pieces = Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/instrument/{name}", Piece[].class, name));
         instrument.setPieces(pieces);
         return instrument;
     }
@@ -39,6 +39,6 @@ public class InstrumentController {
     @GetMapping("/instrument")
     public List<Instrument> getInstrumentList() {
         List<Instrument> instruments = Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument", Instrument[].class));
-        return instruments; //not including pieces, musicians
+        return instruments; //not including pieces(, musicians)
     }
 }
