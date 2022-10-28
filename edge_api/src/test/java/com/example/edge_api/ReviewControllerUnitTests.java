@@ -1,6 +1,4 @@
 package com.example.edge_api;
-import com.example.edge_api.model.Piece;
-import com.example.edge_api.model.Part;
 import com.example.edge_api.model.Review;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,9 +43,6 @@ class ReviewControllerUnitTests {
     private MockMvc mockMvc;
     private MockRestServiceServer mockServer;
     private ObjectMapper mapper = new ObjectMapper();
-
-    private Piece piece1 = new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", new ArrayList<>() {{ add(new Part("Guitar", "Solo")); }});
-    private Piece piece2 = new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", new ArrayList<>() {{ add(new Part("Guitar", "Solo")); }});
 
     private Review review1ForPiece1 = new Review("Una Limosna por el Amor de Dios", 9, "Nice!");
     private Review review2ForPiece1 = new Review("Una Limosna por el Amor de Dios", 7, "Its oke, I guess...");

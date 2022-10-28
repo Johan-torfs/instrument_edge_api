@@ -1,7 +1,6 @@
 package com.example.edge_api;
 
 import com.example.edge_api.model.Instrument;
-import com.example.edge_api.model.Musician;
 import com.example.edge_api.model.Piece;
 import com.example.edge_api.model.Part;
 import com.example.edge_api.model.Review;
@@ -56,17 +55,10 @@ class PieceControllerUnitTests {
     private ObjectMapper mapper = new ObjectMapper();
 
     private Instrument instrumentGuitar = new Instrument("Guitar","The guitar is a fretted musical instrument that typically has six strings. It is usually held flat against the player's body and played by strumming or plucking the strings with the dominant hand, while simultaneously pressing selected strings against frets with the fingers of the opposite hand. A plectrum or individual finger picks may also be used to strike the strings.","1300","String");
-    private Instrument instrumentViolin = new Instrument("Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.","1980","String");
-
-    private Musician musicianGuitar1 = new Musician("Svend Asmussen", 1916,2017, instrumentGuitar);
-    private Musician musicianGuitar2 = new Musician("Jorgen Asmussen", 1915,2012, instrumentGuitar);
-    private Musician musicianViolin1 = new Musician("Beethoven Asmussen", 1915,2012, instrumentViolin);
-
     private Piece piece1 = new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", new ArrayList<>() {{ add(new Part("Guitar", "Solo")); }});
     private Piece piece2 = new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", new ArrayList<>() {{ add(new Part("Guitar", "Solo")); }});
 
     private Review review1ForPiece1 = new Review("Una Limosna por el Amor de Dios", 9, "Nice!");
-    private List<Musician> musicianList = Arrays.asList(musicianGuitar1, musicianGuitar2, musicianViolin1);
     private List<Piece> piece1List = new ArrayList<>() {{ add(piece1); }};
     private List<Piece> pieceList = new ArrayList<>() {{ add(piece1); add(piece2); }};
     private List<Review> reviewList = new ArrayList<>() {{ add(review1ForPiece1); }};

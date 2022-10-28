@@ -57,7 +57,7 @@ class InstrumentControllerUnitTests {
 
     private Musician musicianGuitar1 = new Musician("Svend Asmussen", 1916,2017);
     private Musician musicianGuitar2 = new Musician("Jorgen Asmussen", 1915,2012);
-    private Musician musicianViolin1 = new Musician("Beethoven Asmussen", 1915,2012);
+    //private Musician musicianViolin1 = new Musician("Beethoven Asmussen", 1915,2012);
 
     private Piece pieceGuitar1 = new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", new ArrayList<>() {{ add(new Part("Guitar", "Solo")); }});
 
