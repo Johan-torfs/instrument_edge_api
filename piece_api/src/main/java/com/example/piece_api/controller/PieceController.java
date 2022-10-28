@@ -33,7 +33,7 @@ public class PieceController {
         pieceRepository.save(new Piece("Asturias", "19th century", "Isaac Albéniz", parts));
 
         // Piano
-        ArrayList<Part> parts = new ArrayList<Part>();
+        parts = new ArrayList<Part>();
         parts.add(new Part("Piano", "Solo"));
 
         pieceRepository.save(new Piece("Canon in D (Pachelbel)", "17th century", "Johann Pachelbel", parts));
@@ -41,14 +41,14 @@ public class PieceController {
         pieceRepository.save(new Piece("Für Elise", "19th century", "Ludwig van Beethoven", parts));
 
         // Violin
-        ArrayList<Part> parts = new ArrayList<Part>();
+        parts = new ArrayList<Part>();
         parts.add(new Part("Violin", "Solo"));
 
         pieceRepository.save(new Piece("Sonatas and Partitas for Solo Violin (Bach)", "18th century", "Johann Sebastian Bach", parts));
         pieceRepository.save(new Piece("Sonata for Solo Violin (Bartók)", "20th century", "Béla Bartók", parts));
 
         // Orchestral
-        ArrayList<Part> parts = new ArrayList<Part>();
+        parts = new ArrayList<Part>();
         parts.add(new Part("Violin", "Main"));
         parts.add(new Part("Cello", "Base"));
         parts.add(new Part("Harpsichord", "Base"));
