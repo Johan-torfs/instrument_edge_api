@@ -2,7 +2,6 @@ package com.example.review_api.controller;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,14 +52,15 @@ public class ReviewController {
         return reviewRepository.findReviewsByPieceName(name);
     }
 
-    @PostMapping(path = "/")
+    @PostMapping("/")
     public Review newReview(@RequestBody Review review) {
-        return reviewRepository.save(review);
+        reviewRepository.save(review);
+        return review;
     }
 
-    @PutMapping(path = "/{id}")
+    @PutMapping("/{id}")
     public Review editReview(@PathVariable String id, @RequestBody Review newReview) {
-        return reviewRepository.findById(id)
+        reviewRepository.findById(id)
             .map(review -> {
                 review.setComment(newReview.getComment());
                 review.setRating(newReview.getRating());
@@ -69,14 +69,15 @@ public class ReviewController {
             .orElseGet(() -> {
                 return null;
             });
+            return newReview;
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteReview(@PathVariable String id) {
-        Optional<Review> reviewOptional = reviewRepository.findById(id);
-        if (reviewOptional.isPresent()) {
-            reviewRepository.delete(reviewOptional.get());
-            return new ResponseEntity<String>(id, HttpStatus.OK); 
+        Review review = reviewRepository.findReviewById(id);
+        if (review != null) {
+            reviewRepository.delete(review);
+            return new ResponseEntity<>(HttpStatus.OK); 
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
