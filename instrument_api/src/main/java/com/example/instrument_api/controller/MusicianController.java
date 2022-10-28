@@ -1,5 +1,6 @@
 package com.example.instrument_api.controller;
 
+import javax.annotation.PostConstruct;
 import com.example.instrument_api.model.Musician;
 import com.example.instrument_api.service.MusicianService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,12 @@ public class MusicianController {
 
     @Autowired
     MusicianService musicianService;
+
+    @GetMapping
+    public List<Musician>getMusicians()
+    {
+        return musicianService.getAllMusicians();
+    }
 
     // GET /{id}: Musician
     @GetMapping("/{id}") //path parameter
@@ -52,7 +59,7 @@ public class MusicianController {
         return musicianService.getMusiciansByYear(year);
     }
 
-//    // GET /instrument/{id}: MusicianList
+    // GET /instrument/{id}: MusicianList
     @GetMapping("/instrument/{id}") //path parameter
     public List<Musician> getMusicianInstrument(@PathVariable int id)
     {

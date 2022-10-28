@@ -29,18 +29,21 @@ public class PieceController {
     private String reviewServiceBaseUrl;
 
     @GetMapping("/piece/{name}") //Currently errors because of instrument absence
-    public Piece getPieceWithReviewsAndPartsAndInstrument(@PathVariable String name) {
+    public List<Piece> getPieceWithReviewsAndPartsAndInstrument(@PathVariable String name) {
         Piece[] pieces = restTemplate.getForObject(pieceServiceBaseUrl + "/name/{name}", Piece[].class, name);
         if (pieces == null || pieces.length < 1) {
             return null;
         }
-        Piece piece = pieces[0];
-        for (Part part : piece.getParts()) {
-            part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{id}", Instrument.class, part.getInstrumentId()));
+        for (Piece piece : pieces) {
+            for (Part part : piece.getParts()) {
+                part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
+            }
+
+            List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
+            piece.setReviews(reviews);
         }
-        List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
-        piece.setReviews(reviews);
-        return piece;
+
+        return Arrays.asList(pieces);
     }
 
     @GetMapping("/piece")

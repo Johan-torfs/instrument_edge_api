@@ -14,6 +14,12 @@ public class MusicianService {
     MusicianRepository musicianRepository;
     InstrumentRepository instrumentRepository;
 
+    public List<Musician>getAllMusicians()
+    {
+        List<Musician> results = musicianRepository.findAll();
+        return results;
+    }
+
     public Musician musicianById(int id) {
         return musicianRepository.findById(id).get();
     }
@@ -40,6 +46,14 @@ public class MusicianService {
     }
 
     public List<Musician> getMusiciansByNameContaining(String name) {
-    return musicianRepository.findMusicianByInstrument_Name(name);
+        return musicianRepository.findMusicianByInstrument_Name(name);
     }
+
+    public void save(Musician musician) {
+        musicianRepository.save(musician);
+    } 
+
+    public void delete(Musician musician) {
+        musicianRepository.delete(musician);
+    } 
 }
