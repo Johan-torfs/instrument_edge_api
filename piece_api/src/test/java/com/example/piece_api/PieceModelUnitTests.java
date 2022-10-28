@@ -15,21 +15,21 @@ class PieceModelUnitTests {
     void setName_method() throws Exception {
         Piece piece = new Piece();
         piece.setName("Test");
-        Assertions.assertEquals(piece.getName(), "Test");
+        Assertions.assertEquals("Test", piece.getName());
     }
 
     @Test
     void setPeriod_method() throws Exception {
         Piece piece = new Piece();
         piece.setPeriod("Test");
-        Assertions.assertEquals(piece.getPeriod(), "Test");
+        Assertions.assertEquals("Test", piece.getPeriod());
     }
 
     @Test
     void setComposer_method() throws Exception {
         Piece piece = new Piece();
         piece.setComposer("Test");
-        Assertions.assertEquals(piece.getComposer(), "Test");
+        Assertions.assertEquals("Test", piece.getComposer());
     }
 
     @Test
@@ -40,6 +40,6 @@ class PieceModelUnitTests {
         parts.add(new Part("Guitar", "Solo"));
 
         piece.setParts(parts);
-        Assertions.assertEquals(piece.getParts(), parts);
+        Assertions.assertEquals(parts, piece.getParts());
     }
 }
