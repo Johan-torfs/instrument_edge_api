@@ -38,10 +38,12 @@ public class PieceController {
             for (Part part : piece.getParts()) {
                 part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
             }
+
+            List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
+            piece.setReviews(reviews);
         }
-        List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
-        piece.setReviews(reviews);
-        return piece;
+
+        return pieces;
     }
 
     @GetMapping("/piece")
