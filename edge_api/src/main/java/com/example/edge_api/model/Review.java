@@ -9,15 +9,14 @@ public class Review {
     
     public Review() {}
 
-    public Review(String pieceName, int rating) {
-        this.pieceName = pieceName;
-        this.rating = rating;
-    }
-
     public Review(String pieceName, int rating, String comment) {
         this.pieceName = pieceName;
         this.rating = rating;
         this.comment = comment;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getId() {

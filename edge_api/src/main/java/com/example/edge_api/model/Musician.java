@@ -9,12 +9,6 @@ public class Musician {
 
     public Musician() {}
 
-    public Musician(String name, int birthYear) {
-        this.name = name;
-        this.birthYear = birthYear;
-        this.deathYear = -1; //as a way to clarify the not-deadness?
-    }
-
     public Musician(String name, int birthYear, int deathYear) {
         this.name = name;
         this.birthYear = birthYear;

@@ -107,4 +107,71 @@ class ReviewControllerUnitTests {
                 .andExpect(jsonPath("$.comment",is("Nice!")))
                 .andExpect(jsonPath("$.rating",is(9)));
     }
+
+    @Test
+    void onCall_postReview_returnReview() throws Exception {
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI(reviewServiceBaseurl + "/")))
+                .andExpect(method(HttpMethod.POST))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(review1ForPiece1))
+                );
+
+        mockMvc.perform(post("/review")
+                .param("pieceName", review1ForPiece1.getPieceName())
+                .param("rating", Integer.toString(review1ForPiece1.getRating()))
+                .param("comment", review1ForPiece1.getComment())
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.pieceName",is("Una Limosna por el Amor de Dios")))
+                .andExpect(jsonPath("$.comment",is("Nice!")))
+                .andExpect(jsonPath("$.rating",is(9)));
+    }
+
+    @Test
+    void onCall_putReview_returnReview() throws Exception {
+        Review review = new Review("Una Limosna por el Amor de Dios", 9, "Nice!");
+        Review reviewUpdated = new Review("Una Limosna por el Amor de Dios", 10, "Perfect!");
+        reviewUpdated.setId("634d92404b48d018675459e4");
+
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI(reviewServiceBaseurl + "/634d92404b48d018675459e4")))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(review))
+                );
+
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI(reviewServiceBaseurl + "/634d92404b48d018675459e4")))
+                .andExpect(method(HttpMethod.PUT))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(reviewUpdated))
+                );
+
+        mockMvc.perform(put("/review/{id}", "634d92404b48d018675459e4")
+                .param("rating", "10")
+                .param("comment", "Perfect!")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id",is("634d92404b48d018675459e4")))
+                .andExpect(jsonPath("$.pieceName",is("Una Limosna por el Amor de Dios")))
+                .andExpect(jsonPath("$.comment",is("Perfect!")))
+                .andExpect(jsonPath("$.rating",is(10)));
+    }
+
+    @Test
+    void onCall_deleteReview_returnHttpOk() throws Exception {
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI(reviewServiceBaseurl + "/634d92404b48d018675459e4")))
+                .andExpect(method(HttpMethod.DELETE))
+                .andRespond(withStatus(HttpStatus.OK));
+
+        mockMvc.perform(delete("/review/{id}", "634d92404b48d018675459e4"))
+                .andExpect(status().isOk());
+    }
 }
