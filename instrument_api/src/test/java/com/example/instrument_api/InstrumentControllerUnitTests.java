@@ -32,20 +32,10 @@ public class InstrumentControllerUnitTests {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-
-
-    Set<Musician> musicians = new HashSet<Musician>() {{
-        add(new Musician(2,"Svend Asmussen",1916,2017,null));
-        add(new Musician(4,"Bartolo Alvarez",1914,2017,null));
-        add(new Musician(8,"Ray Anthony",1922,2022,null));
-        add(new Musician(6,"Irving Fields",1915,2016,null));
-
-
-    }};
-    List<Musician> mainList = new ArrayList<Musician>(musicians);
     @Test
     public void givenInstrument_whenGetInstrumentById_thenReturnJsonReview() throws Exception {
-        Instrument instrument = new Instrument(1,"Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String", Collections.singleton(mainList.get(3)));
+
+        Instrument instrument = new Instrument(1,"Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String", Collections.singleton(new Musician(2,"Svend Asmussen",1916,2017,null)));
         given(instrumentRepository.findInstrumentById(1)).willReturn(instrument);
 
         mockMvc.perform(get("/instrument/{id}", 1))
@@ -67,7 +57,7 @@ public class InstrumentControllerUnitTests {
     // GET /instrument/name/{name}: Instrument
   @Test
     public void givenInstrument_whenGetInstrumentByName_thenReturnJsonReview() throws Exception {
-      Instrument instrument1 = new Instrument(1,"Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String", Collections.singleton(mainList.get(3)));
+      Instrument instrument1 = new Instrument(1,"Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String", Collections.singleton(new Musician(2,"Svend Asmussen",1916,2017,null)));
       given(instrumentRepository.findInstrumentByName("Violin")).willReturn(instrument1);
 
       mockMvc.perform(get("/instrument/name/{name}", "Violin"))
@@ -90,8 +80,8 @@ public class InstrumentControllerUnitTests {
     public void givenInstrument_whenGetInstrumentByPeriod_thenReturnJsonReview() throws Exception {
 
 
-        Instrument instrument1 = new Instrument(1,"Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String", Collections.singleton(mainList.get(3)));
-        Instrument instrument2 = new Instrument(7,"Piano","This class of musical instruments requires you to blow into a specific wind instrument by following an order to ensure that the sound that you desire is produced. The instruments can be expected to work depending on the principles of frequencies, sound waves, acoustics, resonance and harmonics. The pitch of the produced sound when you start blowing the instrument is actually dependent on the length of the air column through which the waves of the sounds vibrate", "1980","Percussion", Collections.singleton(mainList.get(0)));
+        Instrument instrument1 = new Instrument(1,"Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String", Collections.singleton(new Musician(2,"Svend Asmussen",1916,2017,null)));
+        Instrument instrument2 = new Instrument(7,"Piano","This class of musical instruments requires you to blow into a specific wind instrument by following an order to ensure that the sound that you desire is produced. The instruments can be expected to work depending on the principles of frequencies, sound waves, acoustics, resonance and harmonics. The pitch of the produced sound when you start blowing the instrument is actually dependent on the length of the air column through which the waves of the sounds vibrate", "1980","Percussion", Collections.singleton(new Musician(8,"Ray Anthony",1922,2022,null)));
 
         List<Instrument> instrumentList1 = new ArrayList<>();
         instrumentList1.add(instrument1);
