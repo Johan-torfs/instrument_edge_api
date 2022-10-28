@@ -18,7 +18,8 @@
         <sonar.organization>johantorfs</sonar.organization>
         <sonar.projectKey>JohanTorfs_instrument_edge_api</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.exclusions>src/main/java/com/example/review_api/dto/*,src/main/java/com/example/review_api/ReviewApiApplication</sonar.exclusions>
+        <sonar.coverage.exclusions>src/main/java/com/example/review_api/ReviewApiApplication</sonar.coverage.exclusions>
+        <sonar.cpd.exclusions>src/main/java/com/example/review_api/dto/*</sonar.cpd.exclusions>
     </properties>
     <dependencies>
         <dependency>
