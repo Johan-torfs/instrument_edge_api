@@ -92,9 +92,25 @@ public class PieceControllerUnitTests {
 
     @Test
     public void onCallGivenNameOfPiece_getPieceByName_returnPiece() throws Exception {
-        given(pieceRepository.findPieceByName(pieceList.get(1).getName())).willReturn(pieceList.subList(1, 2));
+        given(pieceRepository.findPieceByNameRegex(pieceList.get(1).getName())).willReturn(pieceList.subList(1, 2));
 
         mockMvc.perform(get("/name/{name}", pieceList.get(1).getName()))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].name",is("Julia Florida")))
+                .andExpect(jsonPath("$[0].period",is("20th century")))
+                .andExpect(jsonPath("$[0].composer",is("Agustin Barrios Mangoré")))
+                .andExpect(jsonPath("$[0].parts",hasSize(1)))
+                .andExpect(jsonPath("$[0].parts[0].instrument",is("Guitar")))
+                .andExpect(jsonPath("$[0].parts[0].name",is("Solo")));
+    }
+
+    @Test
+    public void onCallGivenPartOfNameOfPiece_getPieceByName_returnPiece() throws Exception {
+        given(pieceRepository.findPieceByNameRegex("Julia")).willReturn(pieceList.subList(1, 2));
+
+        mockMvc.perform(get("/name/{name}", "Julia"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))

@@ -44,7 +44,7 @@ public class PieceController {
 
     @GetMapping("/name/{name}")
     public List<Piece> getPieceByName(@PathVariable String name) {
-        return pieceRepository.findPieceByName(name);
+        return pieceRepository.findPieceByNameRegex(name);
     }
 
     @GetMapping("/instrument/{name}")
