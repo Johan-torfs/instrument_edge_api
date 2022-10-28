@@ -24,7 +24,7 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PieceControllerUnitTests {
+class PieceControllerUnitTests {
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -60,7 +60,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCall_getPieces_returnAllPieces() throws Exception {
+    void onCall_getPieces_returnAllPieces() throws Exception {
         given(pieceRepository.findAll()).willReturn(pieceList);
 
         mockMvc.perform(get("/"))
@@ -91,7 +91,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenIdOfPieceWithNoParts_getPieceById_returnPiece() throws Exception {
+    void onCallGivenIdOfPieceWithNoParts_getPieceById_returnPiece() throws Exception {
         given(pieceRepository.findPieceById(pieceList.get(0).getId())).willReturn(pieceList.get(0));
 
         mockMvc.perform(get("/{id}", pieceList.get(0).getId()))
@@ -103,7 +103,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenIdOfPieceWithOnePart_getPieceById_returnPiece() throws Exception {
+    void onCallGivenIdOfPieceWithOnePart_getPieceById_returnPiece() throws Exception {
         given(pieceRepository.findPieceById(pieceList.get(1).getId())).willReturn(pieceList.get(1));
 
         mockMvc.perform(get("/{id}", pieceList.get(1).getId()))
@@ -118,7 +118,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenNameOfPiece_getPieceByName_returnPiece() throws Exception {
+    void onCallGivenNameOfPiece_getPieceByName_returnPiece() throws Exception {
         given(pieceRepository.findPieceByNameRegex(pieceList.get(1).getName())).willReturn(pieceList.subList(1, 2));
 
         mockMvc.perform(get("/name/{name}", pieceList.get(1).getName()))
@@ -134,7 +134,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenPartOfNameOfPiece_getPieceByName_returnPiece() throws Exception {
+    void onCallGivenPartOfNameOfPiece_getPieceByName_returnPiece() throws Exception {
         given(pieceRepository.findPieceByNameRegex("Julia")).willReturn(pieceList.subList(1, 2));
 
         mockMvc.perform(get("/name/{name}", "Julia"))
@@ -150,7 +150,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenInstrumentId_getPieceByInstrument_returnPiece() throws Exception {
+    void onCallGivenInstrumentId_getPieceByInstrument_returnPiece() throws Exception {
         given(pieceRepository.findPieceByInstrument("Guitar")).willReturn(pieceList.subList(1, 2));
 
         mockMvc.perform(get("/instrument/{name}", "Guitar"))
@@ -166,7 +166,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenComposer_getPieceByComposer_returnPiece() throws Exception {
+    void onCallGivenComposer_getPieceByComposer_returnPiece() throws Exception {
         List<Piece> returnList = new ArrayList<>();
         returnList.add(pieceList.get(1));
         returnList.add(pieceList.get(3));
@@ -191,7 +191,7 @@ public class PieceControllerUnitTests {
     }
 
     @Test
-    public void onCallGivenPeriod_getPieceByPeriod_returnPiece() throws Exception {
+    void onCallGivenPeriod_getPieceByPeriod_returnPiece() throws Exception {
         List<Piece> returnList = new ArrayList<>();
         returnList.add(pieceList.get(0));
         returnList.add(pieceList.get(2));

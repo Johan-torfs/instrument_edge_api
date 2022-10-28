@@ -23,7 +23,7 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PieceControllerIntegrationTests {
+class PieceControllerIntegrationTests {
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -66,7 +66,7 @@ public class PieceControllerIntegrationTests {
     }
 
     @Test
-    public void onCall_getPieces_returnAllPieces() throws Exception {
+    void onCall_getPieces_returnAllPieces() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -95,7 +95,7 @@ public class PieceControllerIntegrationTests {
     }
 
     @Test
-    public void onCallGivenIdOfPieceWithNoParts_getPieceById_returnPiece() throws Exception {
+    void onCallGivenIdOfPieceWithNoParts_getPieceById_returnPiece() throws Exception {
         mockMvc.perform(get("/{id}", pieceList.get(0).getId()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -105,7 +105,7 @@ public class PieceControllerIntegrationTests {
     }
 
     @Test
-    public void onCallGivenIdOfPieceWithOnePart_getPieceById_returnPiece() throws Exception {
+    void onCallGivenIdOfPieceWithOnePart_getPieceById_returnPiece() throws Exception {
         mockMvc.perform(get("/{id}", pieceList.get(1).getId()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -118,7 +118,7 @@ public class PieceControllerIntegrationTests {
     }
 
     @Test
-    public void onCallGivenNameOfPiece_getPieceByName_returnPiece() throws Exception {
+    void onCallGivenNameOfPiece_getPieceByName_returnPiece() throws Exception {
         mockMvc.perform(get("/name/{name}", pieceList.get(1).getName()))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -131,22 +131,22 @@ public class PieceControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].parts[0].name",is("Solo")));
     }
 
-        @Test
-        public void onCallGivenPartOfNameOfPiece_getPieceByName_returnPiece() throws Exception {
-            mockMvc.perform(get("/name/{name}", "Julia"))
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$", hasSize(1)))
-                    .andExpect(jsonPath("$[0].name",is("Julia Florida")))
-                    .andExpect(jsonPath("$[0].period",is("20th century")))
-                    .andExpect(jsonPath("$[0].composer",is("Agustin Barrios Mangoré")))
-                    .andExpect(jsonPath("$[0].parts",hasSize(1)))
-                    .andExpect(jsonPath("$[0].parts[0].instrument",is("Guitar")))
-                    .andExpect(jsonPath("$[0].parts[0].name",is("Solo")));
-        }
+    @Test
+    void onCallGivenPartOfNameOfPiece_getPieceByName_returnPiece() throws Exception {
+        mockMvc.perform(get("/name/{name}", "Julia"))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].name",is("Julia Florida")))
+                .andExpect(jsonPath("$[0].period",is("20th century")))
+                .andExpect(jsonPath("$[0].composer",is("Agustin Barrios Mangoré")))
+                .andExpect(jsonPath("$[0].parts",hasSize(1)))
+                .andExpect(jsonPath("$[0].parts[0].instrument",is("Guitar")))
+                .andExpect(jsonPath("$[0].parts[0].name",is("Solo")));
+    }
 
     @Test
-    public void onCallGivenInstrument_getPieceByInstrument_returnPiece() throws Exception {
+    void onCallGivenInstrument_getPieceByInstrument_returnPiece() throws Exception {
         mockMvc.perform(get("/instrument/{name}", "Guitar"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -160,7 +160,7 @@ public class PieceControllerIntegrationTests {
     }
 
     @Test
-    public void onCallGivenComposer_getPieceByComposer_returnPiece() throws Exception {
+    void onCallGivenComposer_getPieceByComposer_returnPiece() throws Exception {
         mockMvc.perform(get("/composer/{name}", "Agustin Barrios Mangoré"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -180,7 +180,7 @@ public class PieceControllerIntegrationTests {
     }
 
     @Test
-    public void onCallGivenPeriod_getPieceByPeriod_returnPiece() throws Exception {
+    void onCallGivenPeriod_getPieceByPeriod_returnPiece() throws Exception {
         mockMvc.perform(get("/period/{name}", "19th century"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())

@@ -8,19 +8,19 @@ import org.junit.jupiter.api.Assertions;
 import java.util.*;
 
 @SpringBootTest
-public class PartModelUnitTests {
+class PartModelUnitTests {
 
     @Test
-    public void setName_method() throws Exception {
+    void setName_method() throws Exception {
         Part part = new Part();
         part.setName("Test");
-        Assertions.assertEquals(part.getName(), "Test");
+        Assertions.assertEquals("Test", part.getName());
     }
 
     @Test
-    public void setInstrument_method() throws Exception {
+    void setInstrument_method() throws Exception {
         Part part = new Part();
         part.setInstrument("Guitar");
-        Assertions.assertEquals(part.getInstrument(), "Guitar");
+        Assertions.assertEquals("Guitar", part.getInstrument());
     }
 }

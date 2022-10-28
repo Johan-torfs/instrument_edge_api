@@ -17,7 +17,7 @@ public class Piece {
 
     public Piece() {}
 
-    public Piece(String name, String period, String composer, ArrayList<Part> parts) {
+    public Piece(String name, String period, String composer, List<Part> parts) {
         this.name = name;
         this.period = period;
         this.composer = composer;
@@ -62,11 +62,11 @@ public class Piece {
         this.composer = composer;
     }
 
-    public ArrayList<Part> getParts() {
+    public List<Part> getParts() {
         return parts;
     }
 
-    public void setParts(ArrayList<Part> parts) {
+    public void setParts(List<Part> parts) {
         this.parts = parts;
     }
 }
