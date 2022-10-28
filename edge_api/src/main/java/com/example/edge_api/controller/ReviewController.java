@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.tinylog.Logger;
 
 @RestController
 public class ReviewController {
@@ -32,13 +33,8 @@ public class ReviewController {
 
     @PutMapping("/review/{id}") //Here and in post, might have to be RequestBody instead, as done in ReviewApi, but this works for now
     public Review updateReview(@PathVariable String id, @RequestParam Integer rating, @RequestParam String comment) {
-        System.out.println(id);
         Review review = restTemplate.getForObject(reviewServiceBaseUrl + "/{id}", Review.class, id);
         if (review == null) return null;
-        for (int i = 0; i < 20; i++) {
-            System.out.println("TEST");
-        }
-        System.out.println(review.getPieceName());
         review.setRating(rating);
         review.setComment(comment);
         HttpHeaders headers = new HttpHeaders();

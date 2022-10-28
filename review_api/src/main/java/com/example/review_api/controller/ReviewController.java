@@ -15,6 +15,7 @@ import com.example.review_api.model.Review;
 import com.example.review_api.repository.ReviewRepository;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.tinylog.Logger;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -37,11 +38,10 @@ public class ReviewController {
         reviewRepository.save(new Review("Julia Florida", 3, "I don't get how anyone can like this..."));
         reviewRepository.save(new Review("Asturias", 7));
 
-        System.out.println("Reviews added:");
+        Logger.info("Reviews added:");
         for (Review review: reviewRepository.findAll()) {
-            System.out.println(review);
+            Logger.info(review);
         }
-
     }
     
     @GetMapping("/")
