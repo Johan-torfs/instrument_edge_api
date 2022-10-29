@@ -40,27 +40,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/instrument_api" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Thomas More/Bacholer/instrument_edge_api/instrument_api"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.instrument_api.controller" />
@@ -82,13 +69,13 @@
   <component name="RunManager" selected="Spring Boot.InstrumentApiApplication">
     <configuration name="InstrumentApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="instrument_api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.instrument_api.InstrumentApiApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.instrument_api.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.instrument_api.InstrumentApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,6 +135,7 @@
       <workItem from="1665981642253" duration="15000" />
       <workItem from="1665981674585" duration="23000" />
       <workItem from="1666039269322" duration="33000" />
+      <workItem from="1667041214294" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -228,7 +216,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="API Mysql" />
