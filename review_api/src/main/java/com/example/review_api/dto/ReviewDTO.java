@@ -1,17 +1,9 @@
 package com.example.review_api.dto;
 
 public class ReviewDTO {
-    private String id;
-    private int rating;
-    private String comment;
-    private String pieceName;
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    protected int rating;
+    protected String comment;
+    protected String pieceName;
 
     public int getRating() {
         return rating;
