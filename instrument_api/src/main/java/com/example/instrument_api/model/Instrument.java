@@ -6,18 +6,19 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "Instrument")
 public class Instrument implements Serializable {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name="id")
     private int id;
 
@@ -33,15 +34,26 @@ public class Instrument implements Serializable {
     @Column(name="collection")
     private String collection;
 
-    @OneToMany(mappedBy="instrument")
-    @JsonIgnore
-    private Set<Musician> musicians = new HashSet<>();
 
     public Instrument(String name, String description, String period, String collection) {
         this.name = name;
         this.description = description;
         this.period = period;
         this.collection = collection;
+        this.musicians = new ArrayList<>();
+    }
+
+
+    @OneToMany(mappedBy="instrument")
+    private List<Musician> musicians;
+
+
+    @PrePersist
+    public void onCreation(){
+        musicians.forEach(m->{
+            m.setInstrument(this);
+        });
+
     }
 
 }
