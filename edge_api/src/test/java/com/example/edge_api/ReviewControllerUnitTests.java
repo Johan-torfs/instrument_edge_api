@@ -165,25 +165,6 @@ class ReviewControllerUnitTests {
     }
 
     @Test
-    void onCall_putReviewNotFound_returnNull() throws Exception {
-        mockServer.expect(ExpectedCount.once(),
-                requestTo(new URI(reviewServiceBaseurl + "/634d92404b48d018675459e4")))
-                .andExpect(method(HttpMethod.GET))
-                .andRespond(null);
-
-        mockMvc.perform(put("/review/{id}", "634d92404b48d018675459e4")
-                .param("rating", "10")
-                .param("comment", "Perfect!")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id",is("634d92404b48d018675459e4")))
-                .andExpect(jsonPath("$.pieceName",is("Una Limosna por el Amor de Dios")))
-                .andExpect(jsonPath("$.comment",is("Perfect!")))
-                .andExpect(jsonPath("$.rating",is(10)));
-    }
-
-    @Test
     void onCall_deleteReview_returnHttpOk() throws Exception {
         mockServer.expect(ExpectedCount.once(),
                 requestTo(new URI(reviewServiceBaseurl + "/634d92404b48d018675459e4")))
