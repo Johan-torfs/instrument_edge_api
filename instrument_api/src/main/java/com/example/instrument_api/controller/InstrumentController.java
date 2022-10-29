@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import org.tinylog.Logger;
+
 import java.util.List;
 
 
@@ -46,20 +48,14 @@ public class InstrumentController {
         instrumentService.save(instrument4);
         instrumentService.save(instrument5);
 
-        System.out.println("Instruments added:");
-        for (Instrument instrument: instrumentService.getAllInstruments()) {
-            System.out.println(instrument);
-        }
+        Logger.info("Instruments added");
 
         musicianService.save(new Musician(1,"Svend Asmussen", 1916,2017, instrument4));
         musicianService.save(new Musician(2,"Bartolo Alvarez",1914,2017, instrument3));
         musicianService.save(new Musician(3,"Ray Anthony",1922,2022, instrument2));
         musicianService.save(new Musician(4,"Irving Fields",1915,2016, instrument1));
 
-        System.out.println("Musicians added:");
-        for (Musician musician: musicianService.getAllMusicians()) {
-            System.out.println(musician);
-        }
+        Logger.info("Musicians added");
     }
 
     @GetMapping
