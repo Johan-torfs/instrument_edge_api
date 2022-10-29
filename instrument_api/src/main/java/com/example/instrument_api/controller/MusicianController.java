@@ -23,7 +23,7 @@ public class MusicianController {
     @GetMapping
     public List<Musician>getMusicians()
     {
-        return musicianService.getAllMusicians();
+        return musicianRepository.findAll();
     }
 
     // GET /{id}: Musician
