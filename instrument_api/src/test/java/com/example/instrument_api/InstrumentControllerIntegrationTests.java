@@ -36,7 +36,6 @@ public class InstrumentControllerIntegrationTests {
 
     @Autowired
     MusicianRepository musicianRepository;
-
     List<Instrument>instrumentList= new ArrayList<>();
     List<Musician>musicianList= new ArrayList<>();
     @BeforeEach
