@@ -1,15 +1,8 @@
 package com.example.instrument_api.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -34,7 +27,6 @@ public class Instrument implements Serializable {
     @Column(name="collection")
     private String collection;
 
-
     public Instrument(String name, String description, String period, String collection) {
         this.name = name;
         this.description = description;
@@ -43,10 +35,8 @@ public class Instrument implements Serializable {
         this.musicians = new ArrayList<>();
     }
 
-
     @OneToMany(mappedBy="instrument")
     private List<Musician> musicians;
-
 
     @PrePersist
     public void onCreation(){

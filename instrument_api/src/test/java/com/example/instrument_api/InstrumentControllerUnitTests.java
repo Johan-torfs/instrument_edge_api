@@ -4,7 +4,7 @@ package com.example.instrument_api;
 import com.example.instrument_api.model.Instrument;
 import com.example.instrument_api.model.Musician;
 import com.example.instrument_api.repository.InstrumentRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.*;
 
@@ -25,13 +27,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 public class InstrumentControllerUnitTests {
     @Autowired
+    private WebApplicationContext webApplicationContext;
+    @Autowired
     private MockMvc mockMvc;
 
     @MockBean
     private InstrumentRepository instrumentRepository;
 
-    private ObjectMapper mapper = new ObjectMapper();
 
+    @BeforeEach
+    public void beforeAllTests()
+    {
+        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+
+    }
     @Test
     public void whenGetInstrumentById_thenReturnJsonInstrument() throws Exception {
 
