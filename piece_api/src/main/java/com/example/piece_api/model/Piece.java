@@ -3,7 +3,7 @@ package com.example.piece_api.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Document(collection = "pieces")
 public class Piece {
@@ -13,11 +13,11 @@ public class Piece {
     private String period;
     private String composer;
 
-    private ArrayList<Part> parts;
+    private List<Part> parts;
 
     public Piece() {}
 
-    public Piece(String name, String period, String composer, ArrayList<Part> parts) {
+    public Piece(String name, String period, String composer, List<Part> parts) {
         this.name = name;
         this.period = period;
         this.composer = composer;
@@ -62,11 +62,11 @@ public class Piece {
         this.composer = composer;
     }
 
-    public ArrayList<Part> getParts() {
+    public List<Part> getParts() {
         return parts;
     }
 
-    public void setParts(ArrayList<Part> parts) {
+    public void setParts(List<Part> parts) {
         this.parts = parts;
     }
 }

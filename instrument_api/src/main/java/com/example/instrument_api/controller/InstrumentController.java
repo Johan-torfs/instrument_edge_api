@@ -2,6 +2,7 @@ package com.example.instrument_api.controller;
 
 import com.example.instrument_api.model.Instrument;
 import com.example.instrument_api.repository.InstrumentRepository;
+import com.example.instrument_api.repository.MusicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,10 @@ public class InstrumentController {
     @Autowired
     InstrumentRepository instrumentRepository;
 
+    @Autowired
+    MusicianRepository musicianRepository;
+
+
     @GetMapping
     public List<Instrument>getInstruments()
     {
@@ -30,7 +35,9 @@ public class InstrumentController {
     public Instrument getInstrumentById(@PathVariable int id)
     {
         try{
-            return instrumentRepository.findInstrumentById(id);
+            Instrument instrument = instrumentRepository.findInstrumentById(id);
+            instrument.setMusicians(musicianRepository.findMusicianByInstrument_Name(instrument.getName()));
+            return instrument;
         }
         catch (Exception e){
             throw new ResponseStatusException(

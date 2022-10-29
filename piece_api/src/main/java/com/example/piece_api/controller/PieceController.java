@@ -22,13 +22,43 @@ public class PieceController {
         for (Piece piece: pieceRepository.findAll()) {
             pieceRepository.delete(piece);
         }
-        ArrayList<Part> parts = new ArrayList<Part>();
-        parts.add(new Part(5, "Solo"));
 
-        pieceRepository.save(new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", parts));
-        pieceRepository.save(new Piece("Julia Florida", "20th century", "Agustin Barrios Mangoré", parts));
-        pieceRepository.save(new Piece("Requerdos de la Alhambra", "19th century", "Francisco Tárrega", parts));
-        pieceRepository.save(new Piece("Asturias", "19th century", "Isaac Albéniz", parts));
+        String century20 = "20th century";
+        String century19 = "19th century";
+        String century18 = "18th century";
+        String century17 = "17th century";
+
+        // Guitar
+        ArrayList<Part> parts = new ArrayList<>();
+        parts.add(new Part("Guitar", "Solo"));
+
+        pieceRepository.save(new Piece("Una Limosna por el Amor de Dios", century20, "Agustin Barrios Mangoré", parts));
+        pieceRepository.save(new Piece("Julia Florida", century20, "Agustin Barrios Mangoré", parts));
+        pieceRepository.save(new Piece("Requerdos de la Alhambra", century19, "Francisco Tárrega", parts));
+        pieceRepository.save(new Piece("Asturias", century19, "Isaac Albéniz", parts));
+
+        // Piano
+        parts = new ArrayList<>();
+        parts.add(new Part("Piano", "Solo"));
+
+        pieceRepository.save(new Piece("Canon in D (Pachelbel)", century17, "Johann Pachelbel", parts));
+        pieceRepository.save(new Piece("Piano Sonata No. 14 (Beethoven)", century19, "Ludwig van Beethoven", parts));
+        pieceRepository.save(new Piece("Für Elise", century19, "Ludwig van Beethoven", parts));
+
+        // Violin
+        parts = new ArrayList<>();
+        parts.add(new Part("Violin", "Solo"));
+
+        pieceRepository.save(new Piece("Sonatas and Partitas for Solo Violin (Bach)", century18, "Johann Sebastian Bach", parts));
+        pieceRepository.save(new Piece("Sonata for Solo Violin (Bartók)", century20, "Béla Bartók", parts));
+
+        // Orchestral
+        parts = new ArrayList<>();
+        parts.add(new Part("Violin", "Main"));
+        parts.add(new Part("Cello", "Base"));
+        parts.add(new Part("Harpsichord", "Base"));
+
+        pieceRepository.save(new Piece("The Four Seasons (Vivaldi): La primavera", "18th century", "Antonio Vivaldi", parts));
 
         System.out.println("Pieces added:");
         for (Piece piece: pieceRepository.findAll()) {
@@ -49,12 +79,12 @@ public class PieceController {
 
     @GetMapping("/name/{name}")
     public List<Piece> getPieceByName(@PathVariable String name) {
-        return pieceRepository.findPieceByName(name);
+        return pieceRepository.findPieceByNameRegex(name);
     }
 
-    @GetMapping("/instrument/{id}")
-    public List<Piece> getPieceByInstrument(@PathVariable int id) {
-        return pieceRepository.findPieceByInstrument(id);
+    @GetMapping("/instrument/{name}")
+    public List<Piece> getPieceByInstrument(@PathVariable String name) {
+        return pieceRepository.findPieceByInstrument(name);
     }
 
     @GetMapping("/composer/{name}")

@@ -14,5 +14,4 @@ public interface InstrumentRepository extends JpaRepository<Instrument, Integer>
     Instrument findInstrumentById(int id);
     List<Instrument> findInstrumentByPeriod(String name);
 
-
 }
