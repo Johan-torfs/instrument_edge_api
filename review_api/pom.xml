@@ -18,6 +18,8 @@
         <sonar.organization>johantorfs</sonar.organization>
         <sonar.projectKey>JohanTorfs_instrument_edge_api</sonar.projectKey>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.coverage.exclusions>src/main/java/com/example/review_api/ReviewApiApplication</sonar.coverage.exclusions>
+        <sonar.cpd.exclusions>src/main/java/com/example/review_api/dto/*</sonar.cpd.exclusions>
     </properties>
     <dependencies>
         <dependency>
@@ -28,7 +30,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -39,6 +40,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tinylog</groupId>
+            <artifactId>tinylog-api</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.tinylog</groupId>
+            <artifactId>tinylog-impl</artifactId>
+            <version>2.5.0</version>
         </dependency>
     </dependencies>
 

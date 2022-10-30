@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @RestController
 public class PieceController {
@@ -31,12 +30,15 @@ public class PieceController {
     @GetMapping("/piece/{name}") //Currently errors because of instrument absence
     public List<Piece> getPieceWithReviewsAndPartsAndInstrument(@PathVariable String name) {
         Piece[] pieces = restTemplate.getForObject(pieceServiceBaseUrl + "/name/{name}", Piece[].class, name);
-        if (pieces == null || pieces.length < 1) {
-            return null;
+        if (pieces == null) {
+            pieces = new Piece[0];
+        }
+        if (pieces.length < 1) {
+            return new ArrayList<>();
         }
         for (Piece piece : pieces) {
             for (Part part : piece.getParts()) {
-                part.setInstrument(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
+                part.setInstrumentObj(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/{name}", Instrument.class, part.getInstrument()));
             }
 
             List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/piece/{name}", Review[].class, piece.getName()));
