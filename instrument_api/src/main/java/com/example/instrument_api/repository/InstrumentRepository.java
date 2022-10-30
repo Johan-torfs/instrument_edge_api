@@ -10,4 +10,8 @@ import java.util.List;
 public interface InstrumentRepository extends JpaRepository<Instrument, Integer>  {
 
     List<Instrument> findByPeriod(String period);
+    Instrument findInstrumentByName(String name);
+    Instrument findInstrumentById(int id);
+    List<Instrument> findInstrumentByPeriod(String name);
+
 }
