@@ -75,9 +75,9 @@ services:
       ports:
         - '8050:8050'
       environment:
-        INSTRUMENT_SERVICE_BASEURL: api-instrument
-        PIECE_SERVICE_BASEURL: api-piece
-        REVIEW_SERVICE_BASEURL: api-review
+        INSTRUMENT_SERVICE_BASEURL: http://api-instrument
+        PIECE_SERVICE_BASEURL: http://api-piece
+        REVIEW_SERVICE_BASEURL: http://api-review
         INSTRUMENT_SERVICE_PORT: 8051
         PIECE_SERVICE_PORT: 8052
         REVIEW_SERVICE_PORT: 8053

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.tinylog.Logger;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -60,10 +61,7 @@ public class PieceController {
 
         pieceRepository.save(new Piece("The Four Seasons (Vivaldi): La primavera", "18th century", "Antonio Vivaldi", parts));
 
-        System.out.println("Pieces added:");
-        for (Piece piece: pieceRepository.findAll()) {
-            System.out.println(piece);
-        }
+        Logger.info("Pieces added");
 
     }
 

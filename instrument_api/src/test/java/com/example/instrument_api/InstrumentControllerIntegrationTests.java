@@ -4,7 +4,6 @@ import com.example.instrument_api.model.Instrument;
 import com.example.instrument_api.model.Musician;
 import com.example.instrument_api.repository.InstrumentRepository;
 import com.example.instrument_api.repository.MusicianRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,13 +35,14 @@ public class InstrumentControllerIntegrationTests {
 
     @Autowired
     MusicianRepository musicianRepository;
-
     List<Instrument>instrumentList= new ArrayList<>();
     List<Musician>musicianList= new ArrayList<>();
     @BeforeEach
     public void beforeAllTests()
     {
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        musicianRepository.deleteAll();
+        instrumentRepository.deleteAll();
 
         Instrument instrument1 = new Instrument("Violin","When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.", "1980","String");
         Instrument instrument2 = new Instrument("Flute","The flute is the oldest of all instruments that produce pitched sounds (not just rhythms), and was originally made from wood, stone, clay or hollow reeds like bamboo. Modern flutes are made of silver, gold or platinum; there are generally 2 to 4 flutes in an orchestra. A standard flute is a little over 2 feet long and is often featured playing the melody. You play the flute by holding it sideways with both hands and blowing across a hole in the mouthpiece, much like blowing across the top of a bottle. Your fingers open and close the keys, which changes the pitch.", "1981","Woodwind");
@@ -65,20 +65,15 @@ public class InstrumentControllerIntegrationTests {
         instrumentList.add(instrument3);
         instrumentList.add(instrument4);
 
-        musicianRepository.deleteAll();
-        instrumentRepository.deleteAll();
-
-        instrumentRepository.save(instrumentList.get(0));
         musicianRepository.save(musicianList.get(0));
-        instrumentRepository.save(instrumentList.get(1));
         musicianRepository.save(musicianList.get(1));
-        instrumentRepository.save(instrumentList.get(2));
         musicianRepository.save(musicianList.get(2));
-        instrumentRepository.save(instrumentList.get(3));
         musicianRepository.save(musicianList.get(3));
 
-
-
+        instrumentRepository.save(instrumentList.get(0));
+        instrumentRepository.save(instrumentList.get(1));
+        instrumentRepository.save(instrumentList.get(2));
+        instrumentRepository.save(instrumentList.get(3));
 
     }
 
@@ -89,19 +84,7 @@ public class InstrumentControllerIntegrationTests {
         //instrumentRepository.deleteAll();
     }
 
-    private ObjectMapper mapper = new ObjectMapper();
-    @Test
-    public void whenGetInstrumentById_thenReturnJsonInstrument() throws Exception {
-        System.out.println(instrumentList.get(0).getId());
-        mockMvc.perform(get("/instrument/{id}", instrumentList.get(0).getId()))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is("Violin")))
-                .andExpect(jsonPath("$.description", is("When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.")))
-                .andExpect(jsonPath("$.period", is("1980")))
-                .andExpect(jsonPath("$.collection", is("String")));
-    }
-
+    // GET /instrument: Instrument
     @Test
     public void whenGetInstrumentByAllId_thenReturnJsonInstrument() throws Exception {
         mockMvc.perform(get("/instrument").contentType(MediaType.APPLICATION_JSON))
@@ -116,7 +99,6 @@ public class InstrumentControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].musicians[0].name", is("Svend Asmussen")))
                 .andExpect(jsonPath("$[0].musicians[0].yearOfBirth", is(1916)))
                 .andExpect(jsonPath("$[0].musicians[0].yearOfDeath", is(2017)))
-
 
                 .andExpect(jsonPath("$[1].name", is("Flute")))
                 .andExpect(jsonPath("$[1].description", is("The flute is the oldest of all instruments that produce pitched sounds (not just rhythms), and was originally made from wood, stone, clay or hollow reeds like bamboo. Modern flutes are made of silver, gold or platinum; there are generally 2 to 4 flutes in an orchestra. A standard flute is a little over 2 feet long and is often featured playing the melody. You play the flute by holding it sideways with both hands and blowing across a hole in the mouthpiece, much like blowing across the top of a bottle. Your fingers open and close the keys, which changes the pitch.")))
@@ -148,6 +130,26 @@ public class InstrumentControllerIntegrationTests {
         ;
 
     }
+    // GET /instrument/{id}: Instrument
+    @Test
+    public void whenGetInstrumentById_thenReturnJsonInstrument() throws Exception {
+        mockMvc.perform(get("/instrument/{id}", instrumentList.get(0).getId()))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is("Violin")))
+                .andExpect(jsonPath("$.description", is("When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.")))
+                .andExpect(jsonPath("$.period", is("1980")))
+                .andExpect(jsonPath("$.collection", is("String")))
+                .andExpect(jsonPath("$.musicians", hasSize(1)))
+                .andExpect(jsonPath("$.musicians[0].name", is("Svend Asmussen")))
+                .andExpect(jsonPath("$.musicians[0].yearOfBirth", is(1916)))
+                .andExpect(jsonPath("$.musicians[0].yearOfDeath", is(2017)))
+
+        ;
+    }
+
+
+
     // GET /instrument/name/{name}: Instrument
     @Test
     public void whenGetInstrumentByName_thenReturnJsonInstrument() throws Exception {

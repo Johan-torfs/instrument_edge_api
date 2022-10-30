@@ -28,11 +28,12 @@ public class InstrumentController {
     @GetMapping("/instrument/{name}")
     public Instrument getInstrumentWithMusiciansAndPieces(@PathVariable String name) {
         Instrument instrument = restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument/name/{name}", Instrument.class, name);
-        if (instrument == null) return null;
-        List<Musician> musicians = Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/musician/instrument/name/{name}", Musician[].class, name));
-        instrument.setMusicians(musicians);
-        List<Piece> pieces = Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/instrument/{name}", Piece[].class, name));
-        instrument.setPieces(pieces);
+        if (instrument != null) {
+            List<Musician> musicians = Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/musician/instrument/name/{name}", Musician[].class, name));
+            instrument.setMusicians(musicians);
+            List<Piece> pieces = Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/instrument/{name}", Piece[].class, name));
+            instrument.setPieces(pieces);
+        }
         return instrument;
     }
 

@@ -5,8 +5,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-import java.util.*;
-
 @SpringBootTest
 class PartModelUnitTests {
 

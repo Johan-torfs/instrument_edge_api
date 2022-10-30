@@ -33,12 +33,9 @@ public class Musician implements Serializable {
         this.instrument = instrument;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JsonIgnore
     @JoinColumn(name = "instrument_id", nullable = false)
     private Instrument instrument;
-
-
-
 }
 

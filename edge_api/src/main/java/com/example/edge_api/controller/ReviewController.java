@@ -32,13 +32,8 @@ public class ReviewController {
 
     @PutMapping("/review/{id}") //Here and in post, might have to be RequestBody instead, as done in ReviewApi, but this works for now
     public Review updateReview(@PathVariable String id, @RequestParam Integer rating, @RequestParam String comment) {
-        System.out.println(id);
         Review review = restTemplate.getForObject(reviewServiceBaseUrl + "/{id}", Review.class, id);
         if (review == null) return null;
-        for (int i = 0; i < 20; i++) {
-            System.out.println("TEST");
-        }
-        System.out.println(review.getPieceName());
         review.setRating(rating);
         review.setComment(comment);
         HttpHeaders headers = new HttpHeaders();
