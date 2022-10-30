@@ -37,8 +37,5 @@ public class Musician implements Serializable {
     @JsonIgnore
     @JoinColumn(name = "instrument_id", nullable = false)
     private Instrument instrument;
-
-
-
 }
 

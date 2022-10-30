@@ -35,13 +35,13 @@ public class Instrument implements Serializable {
         this.musicians = new ArrayList<>();
     }
 
-    @OneToMany(mappedBy="instrument")
+    @OneToMany(mappedBy="instrument",cascade=CascadeType.ALL)
     private List<Musician> musicians;
 
     @PrePersist
     public void onCreation(){
-        musicians.forEach(m->{
-            m.setInstrument(this);
+        musicians.forEach(musician->{
+            musician.setInstrument(this);
         });
 
     }
