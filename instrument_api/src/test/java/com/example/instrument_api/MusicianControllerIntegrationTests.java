@@ -159,6 +159,15 @@ public class MusicianControllerIntegrationTests {
         ;
 
     }
+    // GET /musician/instrument/{id}: MusicianList
+    @Test
+    public void whenGetMusicianInstrumentById_thenReturnJsonMusician() throws Exception {
+        mockMvc.perform(get("/musician/instrument/{id}", instrumentList.get(3).getId()).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].name", is("Irving Fields")))
+                .andExpect(jsonPath("$[0].yearOfBirth", is(1915)))
+                .andExpect(jsonPath("$[0].yearOfDeath", is(2016)));
+    }
 
     // GET /musician/instrument/name/{name}: MusicianList
     @Test

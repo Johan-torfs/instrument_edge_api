@@ -139,7 +139,13 @@ public class InstrumentControllerIntegrationTests {
                 .andExpect(jsonPath("$.name", is("Violin")))
                 .andExpect(jsonPath("$.description", is("When you look at a string instrument, the first thing you'll probably notice is that it's made of wood, so why is it called a string instrument? The bodies of the string instruments, which are hollow inside to allow sound to vibrate within them, are made of different kinds of wood, but the part of the instrument that makes the sound is the strings, which are made of nylon, steel or sometimes gut. The strings are played most often by drawing a bow across them. The handle of the bow is made of wood and the strings of the bow are actually horsehair from horses' tails! Sometimes the musicians will use their fingers to pluck the strings, and occasionally they will turn the bow upside down and play the strings with the wooden handle.")))
                 .andExpect(jsonPath("$.period", is("1980")))
-                .andExpect(jsonPath("$.collection", is("String")));
+                .andExpect(jsonPath("$.collection", is("String")))
+                .andExpect(jsonPath("$.musicians", hasSize(1)))
+                .andExpect(jsonPath("$.musicians[0].name", is("Svend Asmussen")))
+                .andExpect(jsonPath("$.musicians[0].yearOfBirth", is(1916)))
+                .andExpect(jsonPath("$.musicians[0].yearOfDeath", is(2017)))
+
+        ;
     }
 
 

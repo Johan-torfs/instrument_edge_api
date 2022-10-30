@@ -94,7 +94,7 @@ public class InstrumentControllerUnitTests {
 
     }
 
-
+// GET /instrument/{id}: Instrument
 
     @Test
     public void whenGetInstrumentById_thenReturnJsonInstrument() throws Exception {
