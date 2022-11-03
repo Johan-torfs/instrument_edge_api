@@ -49,9 +49,9 @@ class PieceControllerUnitTests {
         parts = new ArrayList<Part>();
         parts.add(new Part("Banjo", "Baseline"));
         Piece piece3 = new Piece("Asturias", "19th century", "Isaac Albéniz", parts);
-        piece2.setId("634d92404b48d018675459e6");
+        piece3.setId("634d92404b48d018675459e6");
         Piece piece4 = new Piece("Una Limosna por el Amor de Dios", "20th century", "Agustin Barrios Mangoré", parts);
-        piece2.setId("634d92404b48d018675459e7");
+        piece4.setId("634d92404b48d018675459e7");
 
         pieceList.add(piece1);
         pieceList.add(piece2);

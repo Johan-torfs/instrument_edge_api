@@ -14,4 +14,8 @@ public interface MusicianRepository extends JpaRepository<Musician, Integer> {
     List<Musician> findAllByFromYear(@Param("year") int year);
     List<Musician> findMusicianByInstrument_Id(int id);
     List<Musician> findMusicianByInstrument_Name(String name);
+    Musician findMusicianByName(String name);
+    Musician findMusicianById(int id);
+
+
 }
