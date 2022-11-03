@@ -3,22 +3,22 @@ package com.example.edge_api.model;
 public class Musician {
     private String id;
     private String name;
-    private int birthYear;
-    private int deathYear;
+    private int yearOfBirth;
+    private int yearOfDeath;
     private Instrument instrument;
 
     public Musician() {}
 
-    public Musician(String name, int birthYear, int deathYear) {
+    public Musician(String name, int yearOfBirth, int yearOfDeath) {
         this.name = name;
-        this.birthYear = birthYear;
-        this.deathYear = deathYear;
+        this.yearOfBirth = yearOfBirth;
+        this.yearOfDeath = yearOfDeath;
     }
 
-    public Musician(String name, int birthYear, int deathYear, Instrument instrument) {
+    public Musician(String name, int yearOfBirth, int yearOfDeath, Instrument instrument) {
         this.name = name;
-        this.birthYear = birthYear;
-        this.deathYear = deathYear;
+        this.yearOfBirth = yearOfBirth;
+        this.yearOfDeath = yearOfDeath;
         this.instrument = instrument;
     }
 
@@ -30,12 +30,12 @@ public class Musician {
         return name;
     }
 
-    public int getBirthYear() {
-        return birthYear;
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
-    public int getDeathYear() {
-        return deathYear;
+    public int getYearOfDeath() {
+        return yearOfDeath;
     }
 
     public Instrument getInstrument() {
