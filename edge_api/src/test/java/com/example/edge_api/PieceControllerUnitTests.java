@@ -82,7 +82,7 @@ class PieceControllerUnitTests {
 
         // GET Instrument 1 info
         mockServer.expect(ExpectedCount.once(),
-                requestTo(new URI(instrumentServiceBaseurl + "/instrument/Guitar")))
+                requestTo(new URI(instrumentServiceBaseurl + "/instrument/name/Guitar")))
                 .andExpect(method(HttpMethod.GET))
                 .andRespond(withStatus(HttpStatus.OK)
                         .contentType(MediaType.APPLICATION_JSON)
