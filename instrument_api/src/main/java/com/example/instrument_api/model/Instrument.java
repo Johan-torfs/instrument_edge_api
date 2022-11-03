@@ -3,6 +3,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Getter
@@ -36,6 +37,7 @@ public class Instrument implements Serializable {
     }
 
     @OneToMany(mappedBy="instrument",cascade=CascadeType.ALL)
+    @JsonIgnore
     private List<Musician> musicians;
 
     @PrePersist
@@ -43,7 +45,6 @@ public class Instrument implements Serializable {
         musicians.forEach(musician->{
             musician.setInstrument(this);
         });
-
     }
 
 }
