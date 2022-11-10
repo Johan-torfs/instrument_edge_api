@@ -15,7 +15,7 @@ This endpoint returns a list of all the Instruments in the database. The Instrum
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAll.png "Postman Instrument All")
 
 ### Instrument By Name
-GET: [https://api-edge-johantorfs.cloud.okteto.net/instrument/Piano](https://api-edge-johantorfs.cloud.okteto.net/instrument/{name})
+GET: [https://api-edge-johantorfs.cloud.okteto.net/instrument/{name}](https://api-edge-johantorfs.cloud.okteto.net/instrument/Piano)
 This endpoint returns one Instrument by name. The name of the Instrument is unique. The Instrument is returned with Musicians and Pieces (and Parts)
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentByName.png "Postman Instrument By Name")
 
@@ -25,7 +25,7 @@ This endpoint returns a list of all the Musicians in the database. The Musicians
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianAll.png "Postman Musician All")
 
 ### Musician By Name
-GET: [https://api-edge-johantorfs.cloud.okteto.net/musician/Bartolo%20Alvarez](https://api-edge-johantorfs.cloud.okteto.net/musician/{name})
+GET: [https://api-edge-johantorfs.cloud.okteto.net/musician/{name}](https://api-edge-johantorfs.cloud.okteto.net/musician/Bartolo%20Alvarez)
 This endpoint returns one Musician by name. The name of the Musician is unique. The Musician is returned with Instrument
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianByName.png "Postman Musician By Name")
 
@@ -35,7 +35,7 @@ This endpoint returns a list of all the Pieces in the database. The Pieces are r
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceAll.png "Postman Piece All")
 
 ### Piece By Name
-GET: [https://api-edge-johantorfs.cloud.okteto.net/piece/Sonata](https://api-edge-johantorfs.cloud.okteto.net/piece/{name})
+GET: [https://api-edge-johantorfs.cloud.okteto.net/piece/{name}](https://api-edge-johantorfs.cloud.okteto.net/piece/Sonata)
 This endpoint returns a list of Pieces by name. The Piece is returned with Parts, Instruments and Reviews. If multiple Pieces are found that (partially) match the given name, all those Pieces are returned
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceByName.png "Postman Piece By Name")
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceByNameMultiple.png "Postman Piece By Name Multiple")
@@ -46,7 +46,7 @@ This endpoint returns a list of all the Reviews in the database.
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewAll.png "Postman Review All")
 
 ### Review By Id
-GET: [https://api-edge-johantorfs.cloud.okteto.net/review/636cef26c3f6fe766fec14bd](https://api-edge-johantorfs.cloud.okteto.net/review/{id})
+GET: [https://api-edge-johantorfs.cloud.okteto.net/review/{id}](https://api-edge-johantorfs.cloud.okteto.net/review/636cef26c3f6fe766fec14bd)
 This endpoint returns one Review by id. The id of the Review is unique.
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewById.png "Postman Review By Id")
 
