@@ -9,12 +9,12 @@ public class Piece {
     private String period;
     private String composer;
 
-    private ArrayList<Part> parts;
+    private List<Part> parts;
     private List<Review> reviews;
 
     public Piece() {}
 
-    public Piece(String name, String period, String composer, ArrayList<Part> parts) {
+    public Piece(String name, String period, String composer, List<Part> parts) {
         this.name = name;
         this.period = period;
         this.composer = composer;
@@ -37,7 +37,7 @@ public class Piece {
         return composer;
     }
 
-    public ArrayList<Part> getParts() {
+    public List<Part> getParts() {
         return parts;
     }
 

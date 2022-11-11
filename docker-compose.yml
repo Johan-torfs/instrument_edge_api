@@ -39,6 +39,18 @@ services:
           MONGO_INITDB_DATABASE: '${REVIEW_DB_NAME}'
         networks:
           - instrument
+    mongodb.counter:
+        image: mongo:5.0
+        ports:
+          - '${FORWARD_COUNTER_PORT:-27020}:27017'
+        volumes:
+          - mongo-counter:/data/db
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: '${COUNTER_USERNAME:-citizix}'
+          MONGO_INITDB_ROOT_PASSWORD: '${COUNTER_PASSWORD:-S3cret}'
+          MONGO_INITDB_DATABASE: '${COUNTER_DB_NAME}'
+        networks:
+          - instrument
 networks:
     instrument:
         driver: bridge
@@ -48,4 +60,6 @@ volumes:
     mongo-piece:
         driver: local
     mongo-review:
+        driver: local
+    mongo-counter:
         driver: local

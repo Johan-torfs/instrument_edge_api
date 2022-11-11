@@ -33,6 +33,16 @@ services:
           MONGO_INITDB_ROOT_USERNAME: '${REVIEW_USERNAME:-citizix}'
           MONGO_INITDB_ROOT_PASSWORD: '${REVIEW_PASSWORD:-S3cret}'
           MONGO_INITDB_DATABASE: '${REVIEW_DB_NAME}'
+    mongodb-counter:
+        image: mongo:5.0
+        ports:
+          - '27020:27017'
+        volumes:
+          - mongo-counter:/data/db
+        environment:
+          MONGO_INITDB_ROOT_USERNAME: '${COUNTER_USERNAME:-citizix}'
+          MONGO_INITDB_ROOT_PASSWORD: '${COUNTER_PASSWORD:-S3cret}'
+          MONGO_INITDB_DATABASE: '${COUNTER_DB_NAME}'
     api-instrument:
       depends_on:
         - mysql-instrument
@@ -63,9 +73,20 @@ services:
         - '8053:8053'
       environment:
         FORWARD_REVIEW_HOST: 'mongodb-review'
-        FORWARD_REVIEW_PORT: 27017
+        FORWARD_REVIEW_PORT: 27018
         REVIEW_USERNAME: '${REVIEW_USERNAME:-citizix}'
         REVIEW_PASSWORD: '${REVIEW_PASSWORD:-S3cret}'
+    api-counter:
+      depends_on:
+        - mongodb-counter
+      image: johantm/instrument_counter_api:latest
+      ports: 
+        - '8054:8054'
+      environment:
+        FORWARD_COUNTER_HOST: 'mongodb-counter'
+        FORWARD_COUNTER_PORT: 27020
+        COUNTER_USERNAME: '${COUNTER_USERNAME:-citizix}'
+        COUNTER_PASSWORD: '${COUNTER_PASSWORD:-S3cret}'
     api-edge:
       depends_on:
         - api-instrument
@@ -85,3 +106,4 @@ volumes:
   mysql-instrument:
   mongo-piece:
   mongo-review:
+  mongo-counter:

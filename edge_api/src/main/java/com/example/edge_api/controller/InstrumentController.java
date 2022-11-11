@@ -39,7 +39,6 @@ public class InstrumentController {
 
     @GetMapping("/instrument")
     public List<Instrument> getInstrumentList() {
-        List<Instrument> instruments = Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument", Instrument[].class));
-        return instruments; //not including pieces(, musicians)
+        return Arrays.asList(restTemplate.getForObject(instrumentServiceBaseUrl + "/instrument", Instrument[].class)); //not including pieces, musicians
     }
 }
