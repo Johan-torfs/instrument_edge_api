@@ -76,7 +76,7 @@ The response is empty with status 200.
 ### Counter All
 GET: [https://api-counter-johantorfs.cloud.okteto.net](https://api-counter-johantorfs.cloud.okteto.net)
 This endpoint returns a list of all the Counters in the database. The Counters are used to count how many times an instrument has been scanned.
-![alt text](https://github.com/JohanTorfs/instrument_edger_api/raw/main/images/CounterAll.png "Postman Counter All")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/CounterAll.png "Postman Counter All")
 
 ### Counter By Id
 GET: [https://api-counter-johantorfs.cloud.okteto.net/{id}](https://api-counter-johantorfs.cloud.okteto.net/636eb2878c47c67c4119d007)
