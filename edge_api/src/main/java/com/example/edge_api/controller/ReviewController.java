@@ -30,43 +30,41 @@ public class ReviewController {
     @Value("${reviewservice.baseurl}")
     private String reviewServiceBaseUrl;
 
+    private String idString = "/{id}";
+
     @PutMapping("/review/{id}") //Here and in post, might have to be RequestBody instead, as done in ReviewApi, but this works for now
     public Review updateReview(@PathVariable String id, @RequestParam Integer rating, @RequestParam String comment) {
-        Review review = restTemplate.getForObject(reviewServiceBaseUrl + "/{id}", Review.class, id);
+        Review review = restTemplate.getForObject(reviewServiceBaseUrl + idString, Review.class, id);
         if (review == null) return null;
         review.setRating(rating);
         review.setComment(comment);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<Review> entity = new HttpEntity<Review>(review, headers);
-        Review editedReview = restTemplate.exchange(reviewServiceBaseUrl + "/{id}", HttpMethod.PUT, entity, Review.class, id).getBody();
-        return editedReview;
+        HttpEntity<Review> entity = new HttpEntity<>(review, headers);
+        return restTemplate.exchange(reviewServiceBaseUrl + idString, HttpMethod.PUT, entity, Review.class, id).getBody();
     }
 
     @GetMapping("/review")
     public List<Review> getReviews() {
-        List<Review> reviews = Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/", Review[].class));
-        return reviews;
+        return Arrays.asList(restTemplate.getForObject(reviewServiceBaseUrl + "/", Review[].class));
     }
 
     @GetMapping("/review/{id}")
     public Review getReviewById(@PathVariable String id) {
-        Review review = restTemplate.getForObject(reviewServiceBaseUrl + "/{id}", Review.class, id);
-        return review;
+        return restTemplate.getForObject(reviewServiceBaseUrl + idString, Review.class, id);
     }
 
     @PostMapping("/review")
     public Review addReview(@RequestParam String pieceName, @RequestParam int rating, @RequestParam String comment) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<Review> entity = new HttpEntity<Review>(new Review(pieceName, rating, comment), headers);
-        Review newReview = restTemplate.postForObject(reviewServiceBaseUrl + "/", entity, Review.class);
-        return newReview;
+        HttpEntity<Review> entity = new HttpEntity<>(new Review(pieceName, rating, comment), headers);
+        return restTemplate.postForObject(reviewServiceBaseUrl + "/", entity, Review.class);
     }
 
     @DeleteMapping("/review/{id}")
     public ResponseEntity<?> deleteReview(@PathVariable String id) {
-        restTemplate.delete(reviewServiceBaseUrl + "/{id}", id);
+        restTemplate.delete(reviewServiceBaseUrl + idString, id);
         return ResponseEntity.ok().build();
     }
 }

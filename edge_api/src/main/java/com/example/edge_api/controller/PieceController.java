@@ -50,7 +50,6 @@ public class PieceController {
 
     @GetMapping("/piece")
     public List<Piece> getPieceList() {
-        List<Piece> pieces = Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/", Piece[].class));
-        return pieces; //not including instruments or reviews
+        return Arrays.asList(restTemplate.getForObject(pieceServiceBaseUrl + "/", Piece[].class)); //not including instruments or reviews
     }
 }

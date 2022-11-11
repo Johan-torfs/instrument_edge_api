@@ -23,6 +23,9 @@ jobs:
           - api-name: review_api
             database: mongo
             database-port: 27018
+          - api-name: counter_api
+            database: mongo
+            database-port: 27020
           - api-name: edge_api
     uses: JohanTorfs/instrument_edge_api/.github/workflows/reusable_tests.yml@main
     with:

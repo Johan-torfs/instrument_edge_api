@@ -1,0 +1,11 @@
+FROM amazoncorretto:18-alpine3.13-jdk
+EXPOSE 8054
+ENV FORWARD_COUNTER_HOST "mongodb.counter"
+ENV FORWARD_COUNTER_PORT 27020
+ENV COUNTER_DB_ADMIN "admin"
+ENV COUNTER_DB_NAME "counters"
+ENV COUNTER_USERNAME "citizix"
+ENV COUNTER_PASSWORD "S3cret"
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
