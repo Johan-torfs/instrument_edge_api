@@ -64,7 +64,7 @@ PUT: https://api-edge-johantorfs.cloud.okteto.net/review/{id}
 This endpoint updates an existing Review in the database by Id. The given parameters are:
 - rating
 - comment
-The updated created Review is returned.
+The updated Review is returned.
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPUT.png "Postman Review PUT")
 
 ### Review DELETE
@@ -72,6 +72,27 @@ DELETE: https://api-edge-johantorfs.cloud.okteto.net/review/{id}
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDELETE.png "Postman Review DELETE")
+
+### Counter All
+GET: [https://api-counter-johantorfs.cloud.okteto.net](https://api-counter-johantorfs.cloud.okteto.net)
+This endpoint returns a list of all the Counters in the database. The Counters are used to count how many times an instrument has been scanned.
+![alt text](https://github.com/JohanTorfs/instrument_counter_api/raw/main/images/CounterAll.png "Postman Counter All")
+
+### Counter By Id
+GET: [https://api-counter-johantorfs.cloud.okteto.net/{id}](https://api-counter-johantorfs.cloud.okteto.net/636eb2878c47c67c4119d007)
+This endpoint returns a Counter by Id.
+![alt text](https://github.com/JohanTorfs/instrument_counter_api/raw/main/images/CounterById.png "Postman Counter By Id")
+
+### Counter By Instrument
+GET: [https://api-counter-johantorfs.cloud.okteto.net/instrument/{name}](https://api-counter-johantorfs.cloud.okteto.net/instrument/Guitar)
+This endpoint returns a Counter for a given Instrument by name.
+![alt text](https://github.com/JohanTorfs/instrument_counter_api/raw/main/images/CounterByInstrument.png "Postman Counter By Instrument")
+
+### Counter PUT
+PUT: https://api-counter-johantorfs.cloud.okteto.net/{instrument}
+This endpoint increments an existing Counter. If no Counter exists for the given instrument, a new Counter is created.
+The updated Counter is returned.
+![alt text](https://github.com/JohanTorfs/instrument_counter_api/raw/main/images/CounterPUT.png "Postman Counter PUT")
 
 ## SwaggerUI
 
