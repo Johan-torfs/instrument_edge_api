@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Edge Api", version = "3.0", description = "Description"))
 public class EdgeApiApplication {
 
     @Bean
