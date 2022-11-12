@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="Swaager UI edge_API V1 dependency">
-      <change beforePath="$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/InstrumentApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/InstrumentApiApplication.java" afterDir="false" />
+    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="remove instrument swagger ui">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,8 @@
       <workItem from="1668243327566" duration="353000" />
       <workItem from="1668243908551" duration="1789000" />
       <workItem from="1668245755626" duration="1920000" />
-      <workItem from="1668248467447" duration="1818000" />
+      <workItem from="1668248467447" duration="1927000" />
+      <workItem from="1668250425359" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -239,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668249759735</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="remove instrument swagger ui">
+      <created>1668250317880</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668250317880</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +277,8 @@
     <MESSAGE value="Swaager UI edge_API V1" />
     <MESSAGE value="Swaager UI edge_API V1 update" />
     <MESSAGE value="Swaager UI edge_API V1 dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="Swaager UI edge_API V1 dependency" />
+    <MESSAGE value="remove instrument swagger ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove instrument swagger ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
