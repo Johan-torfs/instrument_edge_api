@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="change sql query" />
+    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="remove instrument swagger ui">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +34,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/model/Instrument.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2Fry0YhqbbRjVrxgQ0N54YfmKOH" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -40,14 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Thomas More/Bacholer/instrument_edge_api/instrument_api"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Thomas More/Bacholer/instrument_edge_api&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.instrument_api.controller" />
@@ -68,7 +73,8 @@
   </component>
   <component name="RunManager" selected="Spring Boot.InstrumentApiApplication">
     <configuration name="InstrumentApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="instrument_api" />
+      <option name="ACTIVE_PROFILES" />
+      <module name="Advanced programming and mobile development" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.instrument_api.InstrumentApiApplication" />
       <extension name="coverage">
         <pattern>
@@ -88,7 +94,8 @@
       </method>
     </configuration>
     <configuration name="ReviewApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="review_api" />
+      <option name="ACTIVE_PROFILES" />
+      <module name="Advanced programming and mobile development" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.review_api.ReviewApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,6 +143,11 @@
       <workItem from="1665981674585" duration="23000" />
       <workItem from="1666039269322" duration="33000" />
       <workItem from="1667041214294" duration="262000" />
+      <workItem from="1668243327566" duration="353000" />
+      <workItem from="1668243908551" duration="1789000" />
+      <workItem from="1668245755626" duration="1920000" />
+      <workItem from="1668248467447" duration="1927000" />
+      <workItem from="1668250425359" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -200,7 +212,42 @@
       <option name="project" value="LOCAL" />
       <updated>1665952428334</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Swaager UI edge_API">
+      <created>1668245249297</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668245249297</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Swaager UI edge_API V1">
+      <created>1668246341562</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668246341562</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Swaager UI edge_API V1 update">
+      <created>1668248082956</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668248082956</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Swaager UI edge_API V1 dependency">
+      <created>1668249759735</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668249759735</updated>
+    </task>
+    <task id="LOCAL-00014" summary="remove instrument swagger ui">
+      <created>1668250317880</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668250317880</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +273,12 @@
     <MESSAGE value="API instrument and musicianlist v2" />
     <MESSAGE value="Queay MusicianRepository update" />
     <MESSAGE value="change sql query" />
-    <option name="LAST_COMMIT_MESSAGE" value="change sql query" />
+    <MESSAGE value="Swaager UI edge_API" />
+    <MESSAGE value="Swaager UI edge_API V1" />
+    <MESSAGE value="Swaager UI edge_API V1 update" />
+    <MESSAGE value="Swaager UI edge_API V1 dependency" />
+    <MESSAGE value="remove instrument swagger ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove instrument swagger ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
