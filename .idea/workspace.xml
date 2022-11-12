@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="change sql query">
+    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="Swaager UI edge_API">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edge_api/src/main/java/com/example/edge_api/EdgeApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge_api/src/main/java/com/example/edge_api/EdgeApiApplication.java" afterDir="false" />
     </list>
@@ -145,7 +145,8 @@
       <workItem from="1666039269322" duration="33000" />
       <workItem from="1667041214294" duration="262000" />
       <workItem from="1668243327566" duration="353000" />
-      <workItem from="1668243908551" duration="1134000" />
+      <workItem from="1668243908551" duration="1789000" />
+      <workItem from="1668245755626" duration="570000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -210,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665952428334</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Swaager UI edge_API">
+      <created>1668245249297</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668245249297</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +244,8 @@
     <MESSAGE value="API instrument and musicianlist v2" />
     <MESSAGE value="Queay MusicianRepository update" />
     <MESSAGE value="change sql query" />
-    <option name="LAST_COMMIT_MESSAGE" value="change sql query" />
+    <MESSAGE value="Swaager UI edge_API" />
+    <option name="LAST_COMMIT_MESSAGE" value="Swaager UI edge_API" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -255,11 +264,6 @@
           <url>file://$PROJECT_DIR$/instrument_api/src/main/java/com/example/instrument_api/controller/MusicianController.java</url>
           <line>24</line>
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/edge_api/src/main/java/com/example/edge_api/EdgeApiApplication.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
