@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="Swaager UI edge_API V1">
+    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="Swaager UI edge_API V1 update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge_api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/edge_api/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +146,8 @@
       <workItem from="1667041214294" duration="262000" />
       <workItem from="1668243327566" duration="353000" />
       <workItem from="1668243908551" duration="1789000" />
-      <workItem from="1668245755626" duration="1541000" />
+      <workItem from="1668245755626" duration="1920000" />
+      <workItem from="1668248467447" duration="1257000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -224,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668246341562</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Swaager UI edge_API V1 update">
+      <created>1668248082956</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668248082956</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +261,8 @@
     <MESSAGE value="change sql query" />
     <MESSAGE value="Swaager UI edge_API" />
     <MESSAGE value="Swaager UI edge_API V1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Swaager UI edge_API V1" />
+    <MESSAGE value="Swaager UI edge_API V1 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Swaager UI edge_API V1 update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
