@@ -96,73 +96,78 @@ The updated Counter is returned.
 
 ## SwaggerUI
 
-## Postman Tests
-In this section you will find a description of all the endpoint together with a screenshot of the relevant postman request
+## SwaggerUI Tests
+In this section you will find a description of all the endpoint together with a screenshot of the relevant SwaggerUI request
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/SwaggerUISw.jpg "Get All Instrument")
 
 ### Instrument All
 GET: [https://localhost:8050/instrument]
 This endpoint returns a list of all the Instruments in the database. The Instruments are returned without Musicians or Pieces
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAll.jpg "Get All Instrument")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAllSw.jpg "Get All Instrument")
 
 
 ### Instrument By Name
 GET: [https://localhost:8050/instrument/{name}]
 This endpoint returns one Instrument by name. The name of the Instrument is unique. The Instrument is returned with Musicians and Pieces (and Parts)
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentGetByNameSw.jpg "Get By Name Instrument")
 
 
 ### Musician All
 GET: [https://localhost:8050/musician]
 This endpoint returns a list of all the Musicians in the database. The Musicians are returned without Instrument
-
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianAllSw.jpg "Get All Musician")
 
 ### Musician By Name
 GET: [https://localhost:8050/musician/{name}]
 This endpoint returns one Musician by name. The name of the Musician is unique. The Musician is returned with Instrument
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianGetByNameSw.jpg "Get By Name Instrument")
 
 
 ### Piece All
 GET: [https://localhost:8050/piece]
 This endpoint returns a list of all the Pieces in the database. The Pieces are returned without Instrument
-
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceAllSw.jpg "Get All Musician")
 
 ### Piece By Name
 GET: [https://localhost:8050/piece/{name}]
 This endpoint returns a list of Pieces by name. The Piece is returned with Parts, Instruments and Reviews. If multiple Pieces are found that (partially) match the given name, all those Pieces are returned
-
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceGetByNameSw.jpg "Get By Name Instrument")
 
 
 ### Review All
 GET: [https://localhost:8050/review]
 This endpoint returns a list of all the Reviews in the database.
-
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewAllSw.jpg "Get All Review")
 
 ### Review By Id
 GET: [https://localhost:8050/review/{id}]
 This endpoint returns one Review by id. The id of the Review is unique.
-
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewByIdSw.jpg "Get By Id Review")
 
 ### Review POST
-POST: https://api-edge-johantorfs.cloud.okteto.net/review
+POST: https://localhost:8050/review
 This endpoint creates a new Review in the database. The given parameters are:
 - pieceName
 - rating
 - comment
   The newly created Review is returned.
+  ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPostSw.jpg "Post Review")
 
 
 ### Review PUT
-PUT: https://api-edge-johantorfs.cloud.okteto.net/review/{id}
+PUT: https://localhost:8050/review/{id}
 This endpoint updates an existing Review in the database by Id. The given parameters are:
 - rating
 - comment
   The updated Review is returned.
+  ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPutSw.jpg "Put Review")
 
 
 ### Review DELETE
-DELETE: https://api-edge-johantorfs.cloud.okteto.net/review/{id}
+DELETE: https://localhost:8050/review/{id}
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
-
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDeleteSw.jpg "Delete Review")
 
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)
