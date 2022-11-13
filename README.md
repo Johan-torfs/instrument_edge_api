@@ -95,9 +95,11 @@ The updated Counter is returned.
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/CounterPOST.png "Postman Counter PUT")
 
 ## SwaggerUI
+
 In this section you will find a description of all the endpoint together with a screenshot of the relevant swagger UI request. 
 You can access the Swagger UI by this link: https://api-edge-johantorfs.cloud.okteto.net/swagger-ui/index.html
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/SwaggerUISw.jpg "Swagger UI")
+
 
 ### Instrument All
 This endpoint returns a list of all the Instruments in the database. The Instruments are returned without Musicians or Pieces
@@ -145,6 +147,7 @@ The updated Review is returned.
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
 ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDeleteSw.jpg "Swagger UI Review DELETE")
+
 
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)
