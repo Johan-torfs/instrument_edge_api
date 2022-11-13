@@ -152,8 +152,7 @@ This endpoint creates a new Review in the database. The given parameters are:
 - comment
   The newly created Review is returned.
   ![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPostSw.jpg "Post Review")
-
-
+  
 ### Review PUT
 PUT: https://localhost:8050/review/{id}
 This endpoint updates an existing Review in the database by Id. The given parameters are:
