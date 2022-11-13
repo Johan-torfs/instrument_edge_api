@@ -141,7 +141,7 @@ The newly created Review is returned.
 ### Review PUT
 This endpoint updates an existing Review in the database by Id.
 The updated Review is returned.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPUTSw.jpg "Swagger UI Review PUT")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPutSw.jpg "Swagger UI Review PUT")
 
 ### Review DELETE
 This endpoint deletes an existing Review in the database by Id.
