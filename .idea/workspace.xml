@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="Insert swaggerUI screenshots">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +176,7 @@
       <workItem from="1668248467447" duration="1927000" />
       <workItem from="1668250425359" duration="37000" />
       <workItem from="1668292169836" duration="1793000" />
-      <workItem from="1668332403561" duration="2156000" />
+      <workItem from="1668332403561" duration="2961000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -289,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668336185286</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Insert swaggerUI screenshots">
+      <created>1668336594019</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1668336594019</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

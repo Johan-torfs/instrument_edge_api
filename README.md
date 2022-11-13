@@ -106,38 +106,38 @@ This endpoint returns a list of all the Instruments in the database. The Instrum
 
 
 ### Instrument By Name
-GET: [https://api-edge-johantorfs.cloud.okteto.net/instrument/{name}](https://api-edge-johantorfs.cloud.okteto.net/instrument/Piano)
+GET: [https://localhost:8050/instrument/{name}]
 This endpoint returns one Instrument by name. The name of the Instrument is unique. The Instrument is returned with Musicians and Pieces (and Parts)
 
 
 ### Musician All
-GET: [https://api-edge-johantorfs.cloud.okteto.net/musician](https://api-edge-johantorfs.cloud.okteto.net/musician)
+GET: [https://localhost:8050/musician]
 This endpoint returns a list of all the Musicians in the database. The Musicians are returned without Instrument
 
 
 ### Musician By Name
-GET: [https://api-edge-johantorfs.cloud.okteto.net/musician/{name}](https://api-edge-johantorfs.cloud.okteto.net/musician/Bartolo%20Alvarez)
+GET: [https://localhost:8050/musician/{name}]
 This endpoint returns one Musician by name. The name of the Musician is unique. The Musician is returned with Instrument
 
 
 ### Piece All
-GET: [https://api-edge-johantorfs.cloud.okteto.net/piece](https://api-edge-johantorfs.cloud.okteto.net/piece)
+GET: [https://localhost:8050/piece]
 This endpoint returns a list of all the Pieces in the database. The Pieces are returned without Instrument
 
 
 ### Piece By Name
-GET: [https://api-edge-johantorfs.cloud.okteto.net/piece/{name}](https://api-edge-johantorfs.cloud.okteto.net/piece/Sonata)
+GET: [https://localhost:8050/piece/{name}]
 This endpoint returns a list of Pieces by name. The Piece is returned with Parts, Instruments and Reviews. If multiple Pieces are found that (partially) match the given name, all those Pieces are returned
 
 
 
 ### Review All
-GET: [https://api-edge-johantorfs.cloud.okteto.net/review](https://api-edge-johantorfs.cloud.okteto.net/review)
+GET: [https://localhost:8050/review]
 This endpoint returns a list of all the Reviews in the database.
 
 
 ### Review By Id
-GET: [https://api-edge-johantorfs.cloud.okteto.net/review/{id}](https://api-edge-johantorfs.cloud.okteto.net/review/636cef26c3f6fe766fec14bd)
+GET: [https://localhost:8050/review/{id}]
 This endpoint returns one Review by id. The id of the Review is unique.
 
 
@@ -162,29 +162,6 @@ This endpoint updates an existing Review in the database by Id. The given parame
 DELETE: https://api-edge-johantorfs.cloud.okteto.net/review/{id}
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
-
-
-### Counter All
-GET: [https://api-counter-johantorfs.cloud.okteto.net](https://api-counter-johantorfs.cloud.okteto.net)
-This endpoint returns a list of all the Counters in the database. The Counters are used to count how many times an instrument has been scanned.
-
-
-### Counter By Id
-GET: [https://api-counter-johantorfs.cloud.okteto.net/{id}](https://api-counter-johantorfs.cloud.okteto.net/636eb2878c47c67c4119d007)
-This endpoint returns a Counter by Id.
-
-
-### Counter By Instrument
-GET: [https://api-counter-johantorfs.cloud.okteto.net/instrument/{name}](https://api-counter-johantorfs.cloud.okteto.net/instrument/Guitar)
-This endpoint returns a Counter for a given Instrument by name.
-
-
-### Counter PUT
-PUT: https://api-counter-johantorfs.cloud.okteto.net/{instrument}
-This endpoint increments an existing Counter. If no Counter exists for the given instrument, a new Counter is created.
-The updated Counter is returned.
-
-
 
 
 ## Front-end Repository
