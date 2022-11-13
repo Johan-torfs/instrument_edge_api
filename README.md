@@ -184,8 +184,5 @@ PUT: https://api-counter-johantorfs.cloud.okteto.net/{instrument}
 This endpoint increments an existing Counter. If no Counter exists for the given instrument, a new Counter is created.
 The updated Counter is returned.
 
-
-
-
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)

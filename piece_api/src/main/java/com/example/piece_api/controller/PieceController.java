@@ -42,16 +42,16 @@ public class PieceController {
         parts = new ArrayList<>();
         parts.add(new Part("Piano", "Solo"));
 
-        pieceRepository.save(new Piece("Canon in D (Pachelbel)", century17, "Johann Pachelbel", parts));
-        pieceRepository.save(new Piece("Piano Sonata No. 14 (Beethoven)", century19, "Ludwig van Beethoven", parts));
+        pieceRepository.save(new Piece("Pachelbel Canon in D", century17, "Johann Pachelbel", parts));
+        pieceRepository.save(new Piece("Beethoven Piano Sonata No. 14", century19, "Ludwig van Beethoven", parts));
         pieceRepository.save(new Piece("Für Elise", century19, "Ludwig van Beethoven", parts));
 
         // Violin
         parts = new ArrayList<>();
         parts.add(new Part("Violin", "Solo"));
 
-        pieceRepository.save(new Piece("Sonatas and Partitas for Solo Violin (Bach)", century18, "Johann Sebastian Bach", parts));
-        pieceRepository.save(new Piece("Sonata for Solo Violin (Bartók)", century20, "Béla Bartók", parts));
+        pieceRepository.save(new Piece("Bach Sonatas and Partitas for Solo Violin", century18, "Johann Sebastian Bach", parts));
+        pieceRepository.save(new Piece("Bartók Sonata for Solo Violin", century20, "Béla Bartók", parts));
 
         // Orchestral
         parts = new ArrayList<>();
@@ -59,7 +59,7 @@ public class PieceController {
         parts.add(new Part("Cello", "Base"));
         parts.add(new Part("Harpsichord", "Base"));
 
-        pieceRepository.save(new Piece("The Four Seasons (Vivaldi): La primavera", "18th century", "Antonio Vivaldi", parts));
+        pieceRepository.save(new Piece("Vivaldi The Four Seasons La primavera", "18th century", "Antonio Vivaldi", parts));
 
         Logger.info("Pieces added");
 
