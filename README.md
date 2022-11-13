@@ -144,7 +144,7 @@ The updated Review is returned.
 ### Review DELETE
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDeletew.jpg "Swagger UI Review DELETE")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDeleteSw.jpg "Swagger UI Review DELETE")
 
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)
