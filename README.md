@@ -96,6 +96,7 @@ The updated Counter is returned.
 
 ## SwaggerUI
 
+
 ## Postman Tests
 In this section you will find a description of all the endpoint together with a screenshot of the relevant postman request
 
@@ -162,7 +163,6 @@ This endpoint updates an existing Review in the database by Id. The given parame
 DELETE: https://api-edge-johantorfs.cloud.okteto.net/review/{id}
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
-
 
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)
