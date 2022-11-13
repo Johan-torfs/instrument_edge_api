@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="remove instrument swagger ui">
-      <change afterPath="$PROJECT_DIR$/images/InstrumentAllSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/InstrumentGetByNameSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MusicianAllSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/MusicianGetByNameSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/PieceAllSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/PieceGetByNameSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ReviewAllSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ReviewByIdSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ReviewDeleteSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ReviewPUTSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ReviewPostSw.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/SwaggerUISw.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c3cb4ef8-0556-4149-8ec5-e7f9fae6880f" name="Default Changelist" comment="Insert swaggerUI screenshots">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +175,7 @@
       <workItem from="1668248467447" duration="1927000" />
       <workItem from="1668250425359" duration="37000" />
       <workItem from="1668292169836" duration="1793000" />
-      <workItem from="1668332403561" duration="1819000" />
+      <workItem from="1668332403561" duration="2156000" />
     </task>
     <task id="LOCAL-00001" summary="API Mysql">
       <created>1665733218628</created>
@@ -295,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668292254363</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Insert swaggerUI screenshots">
+      <created>1668336185286</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668336185286</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +321,8 @@
     <MESSAGE value="Swaager UI edge_API V1 update" />
     <MESSAGE value="Swaager UI edge_API V1 dependency" />
     <MESSAGE value="remove instrument swagger ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove instrument swagger ui" />
+    <MESSAGE value="Insert swaggerUI screenshots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Insert swaggerUI screenshots" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

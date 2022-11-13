@@ -100,9 +100,9 @@ The updated Counter is returned.
 In this section you will find a description of all the endpoint together with a screenshot of the relevant postman request
 
 ### Instrument All
-GET: [https://api-edge-johantorfs.cloud.okteto.net/instrument](https://api-edge-johantorfs.cloud.okteto.net/instrument)
+GET: [https://localhost:8050/instrument]
 This endpoint returns a list of all the Instruments in the database. The Instruments are returned without Musicians or Pieces
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAll.jpg "Postman Counter PUT")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAll.jpg "Get All Instrument")
 
 
 ### Instrument By Name
