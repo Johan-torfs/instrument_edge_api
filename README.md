@@ -97,53 +97,54 @@ The updated Counter is returned.
 ## SwaggerUI
 In this section you will find a description of all the endpoint together with a screenshot of the relevant swagger UI request. 
 You can access the Swagger UI by this link: https://api-edge-johantorfs.cloud.okteto.net/swagger-ui/index.html
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/SwaggerUISw.jpg "Swagger UI")
 
 ### Instrument All
 This endpoint returns a list of all the Instruments in the database. The Instruments are returned without Musicians or Pieces
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAllSw.png "Swagger UI Instrument All")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentAllSw.jpg "Swagger UI Instrument All")
 
 ### Instrument By Name
 This endpoint returns one Instrument by name. The name of the Instrument is unique. The Instrument is returned with Musicians and Pieces (and Parts)
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentByNameSw.png "Swagger UI Instrument By Name")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/InstrumentGetByNameSw.jpg "Swagger UI Instrument By Name")
 
 ### Musician All
 This endpoint returns a list of all the Musicians in the database. The Musicians are returned without Instrument
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianAllSw.png "Swagger UI Musician All")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianAllSw.jpg "Swagger UI Musician All")
 
 ### Musician By Name
 This endpoint returns one Musician by name. The name of the Musician is unique. The Musician is returned with Instrument
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianByNameSw.png "Swagger UI Musician By Name")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/MusicianGetByNameSw.jpg "Swagger UI Musician By Name")
 
 ### Piece All
 This endpoint returns a list of all the Pieces in the database. The Pieces are returned without Instrument
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceAllSw.png "Swagger UI Piece All")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceAllSw.jpg "Swagger UI Piece All")
 
 ### Piece By Name
 This endpoint returns a list of Pieces by name. The Piece is returned with Parts, Instruments and Reviews. If multiple Pieces are found that (partially) match the given name, all those Pieces are returned
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceByNameSw.png "Swagger UI Piece By Name")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/PieceGetByNameSw.jpg "Swagger UI Piece By Name")
 
 ### Review All
 This endpoint returns a list of all the Reviews in the database.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewAllSw.png "Swagger UI Review All")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewAllSw.jpg "Swagger UI Review All")
 
 ### Review By Id
 This endpoint returns one Review by id. The id of the Review is unique.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewByIdSw.png "Swagger UI Review By Id")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewByIdSw.jpg "Swagger UI Review By Id")
 
 ### Review POST
 This endpoint creates a new Review in the database.
 The newly created Review is returned.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPOSTSw.png "Swagger UI Review POST")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPostSw.jpg "Swagger UI Review POST")
 
 ### Review PUT
 This endpoint updates an existing Review in the database by Id.
 The updated Review is returned.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPUTSw.png "Swagger UI Review PUT")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewPUTSw.jpg "Swagger UI Review PUT")
 
 ### Review DELETE
 This endpoint deletes an existing Review in the database by Id.
 The response is empty with status 200.
-![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDELETESw.png "Swagger UI Review DELETE")
+![alt text](https://github.com/JohanTorfs/instrument_edge_api/raw/main/images/ReviewDeletew.jpg "Swagger UI Review DELETE")
 
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)
