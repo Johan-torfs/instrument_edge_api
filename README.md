@@ -96,6 +96,5 @@ The updated Counter is returned.
 
 ## SwaggerUI
 
-
 ## Front-end Repository
 [https://github.com/JohanTorfs/instrument_app](https://github.com/JohanTorfs/instrument_app)

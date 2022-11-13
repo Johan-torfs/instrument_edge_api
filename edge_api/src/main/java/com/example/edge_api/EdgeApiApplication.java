@@ -1,11 +1,14 @@
 package com.example.edge_api;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Edge Api", version = "3.0", description = "Description"))
 public class EdgeApiApplication {
 
     @Bean
