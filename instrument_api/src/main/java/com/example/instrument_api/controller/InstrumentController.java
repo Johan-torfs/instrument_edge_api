@@ -39,16 +39,19 @@ public class InstrumentController {
                Instrument instrument4 = new Instrument("Piano", "This class of musical instruments requires you to blow into a specific wind instrument by following an order to ensure that the sound that you desire is produced. The instruments can be expected to work depending on the principles of frequencies, sound waves, acoustics, resonance and harmonics. The pitch of the produced sound when you start blowing the instrument is actually dependent on the length of the air column through which the waves of the sounds vibrate", "1980", "Percussion");
                Instrument instrument5 = new Instrument("Guitar","The guitar is a fretted musical instrument that typically has six strings. It is usually held flat against the player's body and played by strumming or plucking the strings with the dominant hand, while simultaneously pressing selected strings against frets with the fingers of the opposite hand. A plectrum or individual finger picks may also be used to strike the strings.","1300","String");
 
-
                Musician musician1 = new Musician("Svend Asmussen", 1916, 2017,instrument1);
                Musician musician2 = new Musician("Bartolo Alvarez", 1914, 2017,instrument2);
-               Musician musician4 = new Musician("Irving Fields", 1915, 2016,instrument3);
-               Musician musician3 = new Musician("Ray Anthony", 1922, 2022,instrument4);
+               Musician musician3 = new Musician("Irving Fields", 1915, 2016,instrument3);
+               Musician musician4 = new Musician("Ray Anthony", 1922, 2022,instrument4);
+               Musician musician5 = new Musician("Jimi Hendrix", 1942, 1970,instrument4);
+               Musician musician6 = new Musician("Brian May", 1947, null,instrument4);
 
                musicianRepository.save(musician1);
                musicianRepository.save(musician2);
                musicianRepository.save(musician3);
                musicianRepository.save(musician4);
+               musicianRepository.save(musician5);
+               musicianRepository.save(musician6);
 
                instrumentRepository.save(instrument1);
                instrumentRepository.save(instrument2);

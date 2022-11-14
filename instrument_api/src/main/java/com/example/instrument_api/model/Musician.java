@@ -23,9 +23,9 @@ public class Musician implements Serializable {
     private int yearOfBirth;
 
     @Column(name = "year_of_death")
-    private int yearOfDeath;
+    private Integer yearOfDeath;
 
-    public Musician(String name, int yearOfBirth, int yearOfDeath, Instrument instrument) {
+    public Musician(String name, int yearOfBirth, Integer yearOfDeath, Instrument instrument) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;
         this.yearOfDeath = yearOfDeath;
