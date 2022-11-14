@@ -61,6 +61,13 @@ public class PieceController {
 
         pieceRepository.save(new Piece("Vivaldi The Four Seasons La primavera", "18th century", "Antonio Vivaldi", parts));
 
+        // Violin and guitar, chamber music
+        parts = new ArrayList<>();
+        parts.add(new Part("Violin", "Main"));
+        parts.add(new Part("Guitar", "Main"));
+
+        pieceRepository.save(new Piece("6 Sonatas, Op. 2", "Early 19th century", "Niccolo Paganini", parts));
+
         Logger.info("Pieces added");
 
     }
