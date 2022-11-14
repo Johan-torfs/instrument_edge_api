@@ -51,7 +51,6 @@ public class InstrumentController {
                musicianRepository.save(musician3);
                musicianRepository.save(musician4);
                musicianRepository.save(musician5);
-               musicianRepository.save(musician6);
 
                instrumentRepository.save(instrument1);
                instrumentRepository.save(instrument2);
