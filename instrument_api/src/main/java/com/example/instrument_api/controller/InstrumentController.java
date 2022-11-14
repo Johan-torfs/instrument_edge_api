@@ -42,17 +42,21 @@ public class InstrumentController {
 
                Musician musician1 = new Musician("Svend Asmussen", 1916, 2017,instrument1);
                Musician musician2 = new Musician("Bartolo Alvarez", 1914, 2017,instrument2);
-               Musician musician4 = new Musician("Irving Fields", 1915, 2016,instrument3);
-               Musician musician3 = new Musician("Ray Anthony", 1922, 2022,instrument4);
+               Musician musician3 = new Musician("Irving Fields", 1915, 2016,instrument3);
+               Musician musician4 = new Musician("Ray Anthony", 1922, 2022,instrument4);
+               Musician musician5 = new Musician("Jimi Hendrix", 1942, 1970,instrument5);
 
                musicianRepository.save(musician1);
                musicianRepository.save(musician2);
                musicianRepository.save(musician3);
                musicianRepository.save(musician4);
+               musicianRepository.save(musician5);
+               musicianRepository.save(musician6);
 
                instrumentRepository.save(instrument1);
                instrumentRepository.save(instrument2);
                instrumentRepository.save(instrument3);
+               
                instrumentRepository.save(instrument4);
                instrumentRepository.save(instrument5);
 
